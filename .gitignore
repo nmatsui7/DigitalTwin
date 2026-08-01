@@ -1,0 +1,6 @@
+# macOS
+.DS_Store
+
+# The ZIP is a one-off deliverable that mirrors the working folder;
+# it is intentionally not tracked in the repository.
+digital-twin-tutorial.zip
