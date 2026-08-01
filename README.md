@@ -4,6 +4,8 @@ A beginner-friendly, offline, static web tutorial that shows how to turn an
 ordinary AI chatbot (ChatGPT, Gemini, Claude, or Microsoft Copilot) into a
 personalized **AI companion** using simple Markdown files — no coding required.
 
+[![License: CC BY 4.0](https://img.shields.io/badge/License-CC_BY_4.0-lightgrey.svg)](https://creativecommons.org/licenses/by/4.0/)
+
 > The complete tutorial lives in the [`digital-twin-tutorial/`](digital-twin-tutorial/)
 > folder. This README explains what the repository contains and how to get it.
 
@@ -14,6 +16,7 @@ personalized **AI companion** using simple Markdown files — no coding required
 ```
 DigitalTwin/
 ├── README.md                    ← this file
+├── LICENSE                      ← Creative Commons Attribution 4.0
 ├── screenshots/                 ← tutorial screenshots (see below)
 └── digital-twin-tutorial/       ← the tutorial itself
     ├── index.html               ← the full tutorial page
@@ -109,3 +112,19 @@ starter-kit downloads — works offline from the local file.
 
 See [`digital-twin-tutorial/README.md`](digital-twin-tutorial/README.md) for the
 full customization and testing guide.
+
+---
+
+## License
+
+This work is licensed under the
+[Creative Commons Attribution 4.0 International License](https://creativecommons.org/licenses/by/4.0/)
+(CC BY 4.0).
+
+You are free to **share** and **adapt** the material for any purpose, even
+commercially, as long as you give appropriate credit, link to the license, and
+indicate if changes were made.
+
+- Full license text: [`LICENSE`](LICENSE)
+- Summary of terms (human-readable): <https://creativecommons.org/licenses/by/4.0/>
+- Legal code: <https://creativecommons.org/licenses/by/4.0/legalcode>

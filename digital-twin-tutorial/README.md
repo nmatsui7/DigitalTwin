@@ -239,3 +239,13 @@ The same five files live in `starter-kit/` so you can copy or edit them directly
 - No coding-agent, Copilot Studio, or GitHub Copilot content is included.
 - Maya’s example consistently uses a small apartment balcony (never a backyard).
 - No user-entered personal information is stored automatically in `localStorage`.
+
+---
+
+## License
+
+This tutorial is licensed under the
+[Creative Commons Attribution 4.0 International License](https://creativecommons.org/licenses/by/4.0/)
+(CC BY 4.0). You may share and adapt it for any purpose, even commercially, with
+attribution. The full legal text lives in the `LICENSE` file at the repository
+root.
