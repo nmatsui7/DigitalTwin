@@ -1,12 +1,11 @@
 /* ==========================================================================
-   Build Your First AI Companion — script.js
+   Build Your First Personalized Copilot - script.js
    Minimal vanilla JavaScript:
    - copy buttons + confirmation toast
    - section completion checkboxes with localStorage persistence
    - overall progress indicator + reset
    - back-to-top button
-   - starter-kit downloads (individual + bundle, no server needed)
-   - session-only feedback notes with download
+   - session-only revision notes
    - print handling (expands example answers for printing)
 
    No framework. No API calls. No personal data is ever uploaded or stored
@@ -89,14 +88,14 @@
         var original = btn.textContent;
         btn.textContent = ok ? label : "Copy failed";
         setTimeout(function () { btn.textContent = original; }, 1600);
-        toast(ok ? "Copied to clipboard." : "Could not copy automatically — please select and copy the text manually.");
+        toast(ok ? "Copied to clipboard." : "Could not copy automatically - please select and copy the text manually.");
       });
     });
   });
 
   /* ---------- progress tracking ---------- */
 
-  var PROGRESS_KEY = "dt-tutorial-progress";
+  var PROGRESS_KEY = "copilot-custom-instructions-progress";
 
   function getCompleted() {
     if (!local) return {};
@@ -154,7 +153,7 @@
   var resetBtn = document.getElementById("reset-progress");
   if (resetBtn) {
     resetBtn.addEventListener("click", function () {
-      if (!window.confirm("Reset all completion checkboxes? Your notes and downloaded files are not affected.")) {
+      if (!window.confirm("Reset all completion checkboxes? Your temporary notes are not affected.")) {
         return;
       }
       if (local) {
@@ -189,86 +188,10 @@
     });
   }
 
-  /* ---------- starter kit downloads ---------- */
+  /* ---------- revision notes (session only, never uploaded) ---------- */
 
-  // The same content that ships in the starter-kit/ folder.
-  var STARTER_FILES = {
-    "profile.md": "# About Me\n\n\n## Background\n- My work or main activities:\n- My current responsibilities:\n- My experience level:\n\n\n## Interests\n- I enjoy:\n- I am curious about:\n\n\n## Goals\n- I want to learn:\n- I want help with:\n- I want to improve:\n\n\n## Preferences\n- I prefer short or detailed explanations:\n- I learn best through:\n- I do not enjoy:\n\n\n## Boundaries\n- Topics the AI should not make assumptions about:\n- Information I prefer not to share:\n",
-    "skill.md": "# How to Work With Me\n\n\n## Communication\n- Give the main answer first.\n- Use clear, everyday language.\n- Explain unfamiliar terms.\n- Use examples when useful.\n\n\n## Reasoning\n- Identify important tradeoffs.\n- Separate facts from assumptions.\n- State uncertainty clearly.\n- Politely challenge weak assumptions.\n\n\n## Recommendations\n- Consider my goals and constraints.\n- Avoid expensive recommendations unless the benefit is clear.\n- Give no more than three strong options unless I request more.\n\n\n## Working Style\n- Break large tasks into manageable steps.\n- Do not overwhelm me with advanced features.\n- End with one practical next action.\n",
-    "principles.md": "# My Principles\n\n\n- Prefer simple solutions over complicated ones.\n- Consider long-term cost, not only purchase price.\n- Protect privacy when a convenient alternative exists.\n- Learn through small experiments.\n- Evidence is more useful than confident opinions.\n- Reversible decisions can be made faster than irreversible ones.\n",
-    "feedback.md": "# Feedback and Corrections\n\n\n## What Worked Well\n-\n\n\n## What Was Not Helpful\n-\n\n\n## Corrections\n-\n\n\n## New Preferences\n-\n\n\n## Things That Have Changed\n-\n",
-    "starter.md": "# AI Companion Starter Instructions\n\n\nUse the information and instructions I provide in the following order:\n\n\n1. Follow skill.md for how to communicate and assist me.\n2. Use profile.md for stable information about me.\n3. Use principles.md when comparing choices or making recommendations.\n4. Use my knowledge files only when relevant.\n5. Use feedback.md to avoid repeating corrected mistakes.\n6. Do not invent personal facts.\n7. Clearly distinguish supplied information, general knowledge, and assumptions.\n8. Ask a clarifying question only when the missing information would materially change the answer.\n9. Do not make personal, medical, legal, financial, or other high-impact decisions on my behalf.\n\n\nFirst, summarize your understanding of me in five concise points.\n\n\nThen list:\n\n\n- any conflicts in the information;\n- important missing information;\n- assumptions you should avoid.\n"
-  };
-
-  function downloadTextFile(filename, content) {
-    var blob = new Blob([content], { type: "text/markdown;charset=utf-8" });
-    var url = URL.createObjectURL(blob);
-    var a = document.createElement("a");
-    a.href = url;
-    a.download = filename;
-    document.body.appendChild(a);
-    a.click();
-    document.body.removeChild(a);
-    // Revoke shortly after, so the download still completes.
-    setTimeout(function () { URL.revokeObjectURL(url); }, 1000);
-  }
-
-  document.querySelectorAll("[data-download]").forEach(function (btn) {
-    btn.addEventListener("click", function () {
-      var name = btn.dataset.download;
-      if (!STARTER_FILES[name]) return;
-      downloadTextFile(name, STARTER_FILES[name]);
-      toast("Downloaded " + name + ".");
-    });
-  });
-
-  var downloadAllBtn = document.getElementById("download-all");
-  var downloadAllStatus = document.getElementById("download-all-status");
-  if (downloadAllBtn) {
-    downloadAllBtn.addEventListener("click", async function () {
-      // Preferred path: let the user pick a folder (requires a secure context).
-      if (window.showDirectoryPicker) {
-        try {
-          var dir = await window.showDirectoryPicker();
-          for (var key in STARTER_FILES) {
-            if (!Object.prototype.hasOwnProperty.call(STARTER_FILES, key)) continue;
-            var handle = await dir.getFileHandle(key, { create: true });
-            var writable = await handle.createWritable();
-            await writable.write(STARTER_FILES[key]);
-            await writable.close();
-          }
-          try {
-            await dir.getDirectoryHandle("knowledge", { create: true });
-          } catch (e) { /* knowledge folder is optional */ }
-          toast("Starter kit saved to your chosen folder.");
-          if (downloadAllStatus) {
-            downloadAllStatus.textContent = "Saved all 5 files plus an empty knowledge/ folder to your chosen folder.";
-          }
-          return;
-        } catch (err) {
-          if (err && err.name === "AbortError") return; // user cancelled
-          // Fall through to the download path below.
-        }
-      }
-      // Fallback: download all five files individually. Some browsers may
-      // ask to allow each download, so the status below explains what happened.
-      Object.keys(STARTER_FILES).forEach(function (name, index) {
-        setTimeout(function () {
-          downloadTextFile(name, STARTER_FILES[name]);
-        }, index * 350);
-      });
-      toast("Downloaded 5 files. Check your downloads folder.");
-      if (downloadAllStatus) {
-        downloadAllStatus.textContent = "Started 5 downloads (check your downloads folder). If your browser blocked some, click each Download button above, or copy the files directly from the starter-kit/ folder.";
-      }
-    });
-  }
-
-  /* ---------- feedback notes (session only, never uploaded) ---------- */
-
-  var NOTES_KEY = "dt-feedback-notes";
+  var NOTES_KEY = "copilot-revision-notes";
   var notes = document.getElementById("feedback-notes");
-  var downloadNotes = document.getElementById("download-notes");
 
   if (notes) {
     if (session) {
@@ -284,15 +207,6 @@
       }
     });
 
-    if (downloadNotes) {
-      downloadNotes.addEventListener("click", function () {
-        var content = notes.value.trim()
-          ? notes.value
-          : "# Feedback and Corrections\n\n\n## What Worked Well\n-\n\n\n## What Was Not Helpful\n-\n\n\n## Corrections\n-\n\n\n## New Preferences\n-\n\n\n## Things That Have Changed\n-\n";
-        downloadTextFile("my-feedback-notes.md", content);
-        toast("Downloaded my-feedback-notes.md.");
-      });
-    }
   }
 
   /* ---------- print: expand example answers while printing ---------- */

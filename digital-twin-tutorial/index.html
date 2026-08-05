@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="A beginner-friendly workshop that shows you how to turn an ordinary AI chatbot into a personalized AI companion using simple Markdown files.">
-  <title>Build Your First AI Companion — From Stranger to Digital Twin Persona</title>
+  <meta name="description" content="A beginner-friendly guide to personalizing Microsoft Copilot with Custom Instructions.">
+  <title>Build Your First Personalized Copilot</title>
   <link rel="stylesheet" href="styles.css">
   <script src="script.js" defer></script>
 </head>
@@ -13,15 +13,15 @@
 
   <noscript>
     <div class="noscript-notice">
-      <p><strong>JavaScript is turned off.</strong> All tutorial content below is fully readable. The Copy, Download, and progress-tracking buttons need JavaScript; you can still copy any prompt manually, and the five starter-kit files are also available in the <code>starter-kit/</code> folder next to this page.</p>
+      <p><strong>JavaScript is turned off.</strong> All tutorial content below is fully readable. The Copy buttons and progress tracker need JavaScript, but you can still copy any prompt manually.</p>
     </div>
   </noscript>
 
   <header class="site-header">
     <div class="site-header-inner">
       <a class="brand" href="#top" aria-label="Back to the top of the tutorial">
-        <span class="brand-mark" aria-hidden="true">✦</span>
-        <span class="brand-name">AI Companion Workshop</span>
+        <span class="brand-mark" aria-hidden="true">CI</span>
+        <span class="brand-name">Personalized Copilot Workshop</span>
       </a>
       <div class="progress-wrap" role="group" aria-label="Tutorial progress">
         <span id="progress-text" class="progress-text" aria-live="polite">0 of 8 steps complete</span>
@@ -33,214 +33,61 @@
   </header>
 
   <main id="main-content">
-
-    <!-- ============================ HERO ============================ -->
     <section class="hero" id="top" aria-labelledby="hero-title">
       <div class="hero-inner">
-        <p class="eyebrow">Beginner Workshop · No coding required</p>
-        <h1 id="hero-title">Build Your First AI Companion</h1>
-        <p class="subtitle">From Stranger to Digital Twin Persona</p>
-        <p class="hero-intro">Every AI chatbot begins as a stranger. By giving it context, preferences, useful knowledge, principles, and feedback, you can gradually turn it into a personalized AI companion.</p>
+        <p class="eyebrow">Beginner Workshop - Microsoft Copilot</p>
+        <h1 id="hero-title">Build Your First Personalized Copilot</h1>
+        <p class="subtitle">Use Custom Instructions to make Copilot more useful for you.</p>
+        <p class="hero-intro">Copilot can give more relevant responses when you provide stable background information and clear response preferences. This tutorial shows you how to create one concise set of personalization instructions, add it to Copilot, test it, and improve it over time.</p>
 
         <div class="hero-actions">
-          <a href="#meet-your-ai" class="btn btn-primary btn-lg">Start the Tutorial</a>
+          <a href="#what-copilot-should-know" class="btn btn-primary btn-lg">Start the Tutorial</a>
           <a href="#roadmap" class="btn btn-ghost btn-lg">See the Roadmap</a>
         </div>
 
         <ul class="hero-facts" role="list">
-          <li>⏱ Estimated time: <strong>30–45 minutes</strong></li>
-          <li>🖥 Works with ChatGPT, Gemini, Claude, or Microsoft Copilot</li>
-          <li>📝 Only ordinary conversation — no coding experience needed</li>
-          <li>🔒 Works offline on your own computer</li>
+          <li>Estimated time: <strong>25-35 minutes</strong></li>
+          <li>Uses <strong>Copilot Custom Instructions</strong></li>
+          <li>No coding required</li>
+          <li>One instruction block to maintain</li>
         </ul>
 
         <div class="definition-box">
-          <h2 class="definition-title">What is a “digital twin persona”?</h2>
+          <h2 class="definition-title">What this tutorial means by "digital twin"</h2>
           <blockquote>
-            A digital twin persona is a structured AI representation of selected parts of you—your background, preferences, principles, useful knowledge, and corrections—used to make conversations more relevant and consistent.
+            In this tutorial, a digital twin is a practical personalized assistant configuration: selected information Copilot should know about you, plus preferences for how it should respond.
           </blockquote>
-          <p class="disclaimer"><strong>Important:</strong> Your AI companion is not a perfect copy of you. It is a useful representation based on the information and instructions you choose to provide.</p>
-          <p class="disclaimer-small">A digital twin persona is <em>not</em> conscious, not a perfect prediction of you, not an unquestionable authority, and not permission for an AI to act independently on your behalf.</p>
+          <p class="disclaimer"><strong>Important:</strong> This is not a complete or continuously synchronized copy of a person. It is a useful set of instructions that you control and update.</p>
+          <p class="disclaimer-small">Custom Instructions guide Copilot, but they do not make Copilot perfect, independent, or automatically aware of everything in your life.</p>
         </div>
       </div>
     </section>
 
-    <!-- ============================ ROADMAP ============================ -->
     <section class="roadmap" id="roadmap" aria-labelledby="roadmap-title">
       <div class="roadmap-inner">
-        <h2 id="roadmap-title">Your Path to a Digital Twin Persona</h2>
-        <p>Seven practical stages, plus one security checkpoint. You can follow them in order or jump to whatever interests you.</p>
+        <h2 id="roadmap-title">Your Path</h2>
+        <p>Follow these steps in order. You will finish with one consolidated Custom Instructions block inside Copilot.</p>
         <ol class="roadmap-list">
-          <li><a href="#meet-your-ai">Conversation</a><span class="roadmap-arrow" aria-hidden="true">↓</span></li>
-          <li><a href="#introduce-yourself">Profile</a><span class="roadmap-arrow" aria-hidden="true">↓</span></li>
-          <li><a href="#teach-it-how-you-work">Working Instructions</a><span class="roadmap-arrow" aria-hidden="true">↓</span></li>
-          <li><a href="#principles">Principles</a><span class="roadmap-arrow" aria-hidden="true">↓</span></li>
-          <li><a href="#give-it-useful-knowledge">Useful Knowledge</a><span class="roadmap-arrow" aria-hidden="true">↓</span></li>
-          <li><a href="#grow-together">Feedback</a><span class="roadmap-arrow" aria-hidden="true">↓</span></li>
-          <li><a href="#create-your-digital-twin">Digital Twin Persona</a><span class="roadmap-arrow" aria-hidden="true">↓</span></li>
-          <li><a href="#keep-it-up-to-date">Ongoing Review</a></li>
+          <li><a href="#what-copilot-should-know">Decide what Copilot should know</a><span class="roadmap-arrow" aria-hidden="true">v</span></li>
+          <li><a href="#how-copilot-should-respond">Decide how Copilot should respond</a><span class="roadmap-arrow" aria-hidden="true">v</span></li>
+          <li><a href="#create-custom-instructions">Create the Custom Instructions</a><span class="roadmap-arrow" aria-hidden="true">v</span></li>
+          <li><a href="#add-to-copilot">Add the instructions to Copilot</a><span class="roadmap-arrow" aria-hidden="true">v</span></li>
+          <li><a href="#test-personalization">Test the personalization</a><span class="roadmap-arrow" aria-hidden="true">v</span></li>
+          <li><a href="#improve-instructions">Improve the instructions</a><span class="roadmap-arrow" aria-hidden="true">v</span></li>
+          <li><a href="#limits-privacy">Review limits and privacy</a><span class="roadmap-arrow" aria-hidden="true">v</span></li>
+          <li><a href="#what-you-have-built">Finish and keep it current</a></li>
         </ol>
-        <p class="roadmap-note">Along the way you will also pass a standalone <a href="#stay-safe">safety checkpoint</a>: <strong>Stay Safe and Smart</strong>.</p>
+        <p class="roadmap-note">Copilot is updated over time, so menu wording and layout may vary. Use the visible path as a guide: Chat settings, Personalization, then Custom Instructions.</p>
       </div>
     </section>
 
-    <!-- ============================ SECTION 1 ============================ -->
-    <section class="lesson" id="meet-your-ai" aria-labelledby="s1-title">
+    <section class="lesson" id="what-copilot-should-know" aria-labelledby="s1-title">
       <div class="lesson-inner">
         <header class="lesson-head">
           <span class="lesson-number" aria-hidden="true">1</span>
           <div>
-            <h2 id="s1-title">Meet Your AI</h2>
-            <p class="lesson-tagline">Turn a generic answer into a useful one — with context, not tricks.</p>
-          </div>
-        </header>
-
-        <figure class="lesson-figure">
-          <img src="images/01-meet-your-ai.png"
-               alt="A beginner having a friendly conversation with a cheerful AI robot."
-               width="306" height="309" loading="lazy">
-          <figcaption>Think of your AI as a friendly collaborator, not a search box.</figcaption>
-        </figure>
-
-        <div class="goal-box" role="note">
-          <h3 class="goal-title">🎯 Learning Goal</h3>
-          <p>Understand that an AI chatbot is more useful as a conversational collaborator than as a simple search box.</p>
-        </div>
-
-        <div class="explanation">
-          <h3>The Big Idea</h3>
-          <p>Short, generic questions often produce short, generic answers. That is not a flaw — it simply means the chatbot does not know enough about you yet.</p>
-          <p>When you add relevant context, the chatbot can tailor its reply: what you can change, how much time you have, where you are starting from, and what “good” looks like for you.</p>
-          <p>You do <strong>not</strong> need advanced prompt engineering or special formulas. This is ordinary conversation — the same way you would explain a situation to a helpful colleague.</p>
-        </div>
-
-        <h3 class="section-sub">Try This Now</h3>
-
-        <div class="activity">
-          <h4 class="activity-title">Activity 1: Ask a generic question</h4>
-          <p>Ask your chatbot this broad question and read what happens:</p>
-          <div class="copy-block">
-            <div class="copy-block-head">
-              <span class="copy-block-label">Prompt</span>
-              <button type="button" class="btn-copy">Copy</button>
-            </div>
-            <pre class="copy-text">How can I learn Spanish?</pre>
-          </div>
-          <details class="answer">
-            <summary>Example AI answer <span class="tag">Example</span></summary>
-            <div class="answer-body">
-              <p class="answer-note">Every chatbot is different. The example below is illustrative — your answer may vary in wording and detail.</p>
-              <p>Here are some common building blocks for learning Spanish:</p>
-              <ul>
-                <li>Learn a little vocabulary every day.</li>
-                <li>Listen to Spanish (music, podcasts, shows).</li>
-                <li>Practice speaking, even to yourself.</li>
-                <li>Read simple texts as you improve.</li>
-                <li>Study regularly, even for short periods.</li>
-              </ul>
-              <p>This is general advice. A more specific plan depends on your schedule, experience level, and goal.</p>
-            </div>
-          </details>
-          <p class="result-note">This answer is useful but broad. It gives you ideas — and leaves most of the work to you.</p>
-        </div>
-
-        <div class="activity">
-          <h4 class="activity-title">Activity 2: Ask with context</h4>
-          <p>Now add a few details about your situation. Copy this prompt and send it to the same chatbot:</p>
-          <div class="copy-block">
-            <div class="copy-block-head">
-              <span class="copy-block-label">Prompt</span>
-              <button type="button" class="btn-copy">Copy</button>
-            </div>
-            <pre class="copy-text">I work full-time and commute for about 40 minutes each day. I can study for 20 minutes in the evening. I am a complete beginner and want to hold a basic conversation in Spanish within six months. Create a realistic learning plan for me.</pre>
-          </div>
-          <details class="answer">
-            <summary>Example AI answer <span class="tag">Example</span></summary>
-            <div class="answer-body">
-              <p class="answer-note">Every chatbot is different. The example below is illustrative — your answer may vary.</p>
-              <p>Here is a realistic six-month plan for your situation.</p>
-              <ul>
-                <li><strong>During your commute (40 minutes):</strong> listen to beginner Spanish audio two to three times a week. This uses time you already have.</li>
-                <li><strong>In the evening (20 minutes):</strong> do a short lesson focused on useful everyday phrases rather than grammar drills.</li>
-                <li><strong>Speaking once a week:</strong> practice out loud, even if it is just repeating phrases or a short conversation with an app.</li>
-                <li><strong>A simple progression:</strong> months 1–2 greetings and introductions; months 3–4 everyday situations such as ordering food or asking for directions; months 5–6 short, simple conversations on familiar topics.</li>
-                <li><strong>Realistic expectation:</strong> within six months you can likely hold simple conversations — fluency takes longer.</li>
-              </ul>
-              <p>This assumes you can use headphones during the commute and keep the 20-minute evening slot most days. If either changes, tell me and I can adjust the plan.</p>
-            </div>
-          </details>
-          <p class="result-note">Notice how the second answer fits <em>your</em> life: your commute, your evenings, your beginner level, your six-month goal.</p>
-        </div>
-
-        <div class="comparison" aria-label="Side-by-side comparison">
-          <div class="comparison-col">
-            <h4>Generic Question</h4>
-            <ul>
-              <li>Little context</li>
-              <li>Broad answer</li>
-              <li>More work required from you</li>
-            </ul>
-          </div>
-          <div class="comparison-arrow" aria-hidden="true">→</div>
-          <div class="comparison-col comparison-col-good">
-            <h4>Context-Rich Question</h4>
-            <ul>
-              <li>Relevant constraints</li>
-              <li>More realistic answer</li>
-              <li>Easier to act on</li>
-            </ul>
-          </div>
-        </div>
-
-        <div class="notice-box">
-          <h3>What to Notice</h3>
-          <p>The second answer is more useful because the AI now knows:</p>
-          <ul>
-            <li>your available time;</li>
-            <li>your experience level;</li>
-            <li>your learning goal;</li>
-            <li>your schedule;</li>
-            <li>your preferred pace.</li>
-          </ul>
-          <p>You did not use any special techniques — you simply described your situation. That is the whole trick.</p>
-        </div>
-
-        <div class="variation-box">
-          <h3>Optional Variation</h3>
-          <p>Make it even more personal. Add one more useful detail, such as:</p>
-          <ul>
-            <li>your preferred learning method;</li>
-            <li>your available budget;</li>
-            <li>your reason for learning;</li>
-            <li>whether you prefer apps, books, or conversation.</li>
-          </ul>
-        </div>
-
-        <div class="copilot-tip">
-          <strong class="copilot-tip-label">Microsoft Copilot</strong>
-          <p>Run the same two prompts in Copilot Chat (sign in at <code>m365.cloud.microsoft</code> or <code>copilot.microsoft.com</code>). Copilot may include web results; if you want an answer based only on your own words, add that instruction to your prompt.</p>
-        </div>
-
-        <label class="completion-check">
-          <input type="checkbox" data-progress="s1">
-          <span>I completed this section.</span>
-        </label>
-
-        <nav class="lesson-nav" aria-label="Section 1 navigation">
-          <a href="#top" class="btn btn-ghost">← Back to Start</a>
-          <a href="#introduce-yourself" class="btn btn-primary">Next: Introduce Yourself →</a>
-        </nav>
-      </div>
-    </section>
-
-    <!-- ============================ SECTION 2 ============================ -->
-    <section class="lesson" id="introduce-yourself" aria-labelledby="s2-title">
-      <div class="lesson-inner">
-        <header class="lesson-head">
-          <span class="lesson-number" aria-hidden="true">2</span>
-          <div>
-            <h2 id="s2-title">Introduce Yourself</h2>
-            <p class="lesson-tagline">Write a simple profile so the AI stops guessing.</p>
+            <h2 id="s1-title">Decide What Copilot Should Know</h2>
+            <p class="lesson-tagline">Start with useful background, not private details.</p>
           </div>
         </header>
 
@@ -248,182 +95,96 @@
           <img src="images/02-introduce-yourself.png"
                alt="A friendly robot reading a simple personal profile card."
                width="303" height="302" loading="lazy">
-          <figcaption>A profile card is enough — you do not need an autobiography.</figcaption>
+          <figcaption>A few stable details help Copilot stop guessing.</figcaption>
         </figure>
 
         <div class="goal-box" role="note">
-          <h3 class="goal-title">🎯 Learning Goal</h3>
-          <p>Create a simple personal profile that tells the AI who you are.</p>
+          <h3 class="goal-title">Learning Goal</h3>
+          <p>Identify the information Copilot should use to personalize future answers.</p>
         </div>
 
         <div class="explanation">
           <h3>The Big Idea</h3>
-          <p>We will save your profile as a file called <code>profile.md</code>. The <code>.md</code> stands for <strong>Markdown</strong>, a simple plain-text format that is easy to read and edit.</p>
-          <p>Do not worry about the filename. You may equally use a normal text file, a note, a document, a chatbot project, or a custom instruction field. <strong>The concept matters more than the file extension.</strong></p>
+          <p>Copilot starts with little stable information about you. If you give it a short, accurate background, it can adapt examples, explanations, and recommendations to your work and goals.</p>
+          <p>Only include information that will help Copilot respond better. You do not need to tell Copilot everything about yourself.</p>
         </div>
 
-        <h3 class="section-sub">Your Profile Template</h3>
-        <p>Copy this template into a file called <code>profile.md</code> and fill it in:</p>
-        <div class="copy-block">
-          <div class="copy-block-head">
-            <span class="copy-block-label">Markdown template</span>
-            <button type="button" class="btn-copy">Copy</button>
-          </div>
-          <pre class="copy-text"># About Me
-
-
-## Background
-- My work or main activities:
-- My current responsibilities:
-- My experience level:
-
-
-## Interests
-- I enjoy:
-- I am curious about:
-
-
-## Goals
-- I want to learn:
-- I want help with:
-- I want to improve:
-
-
-## Preferences
-- I prefer short or detailed explanations:
-- I learn best through:
-- I do not enjoy:
-
-
-## Boundaries
-- Topics the AI should not make assumptions about:
-- Information I prefer not to share:</pre>
-        </div>
-
-        <h3 class="section-sub">A Completed Example</h3>
-        <p>Here is how our fictional learner, <strong>Maya</strong>, filled it in. Maya works as a community-college administrator, enjoys gardening and mystery novels, and wants to improve her public speaking:</p>
-        <div class="copy-block">
-          <div class="copy-block-head">
-            <span class="copy-block-label">Completed example — Maya’s profile</span>
-            <button type="button" class="btn-copy">Copy</button>
-          </div>
-          <pre class="copy-text"># About Me
-
-
-## Background
-- I work as a community-college administrator.
-- I organize student programs and help coordinate staff activities.
-- I am comfortable using ordinary office software but do not consider myself technically experienced.
-
-
-## Interests
-- I enjoy gardening and mystery novels.
-- I am curious about practical ways to use AI in everyday life.
-
-
-## Goals
-- I want to improve my public speaking.
-- I want help organizing personal projects.
-- I want to become more confident using AI.
-
-
-## Preferences
-- I prefer examples before theory.
-- I learn best through short practical exercises.
-- I do not enjoy unnecessary jargon or very long lists.
-
-
-## Boundaries
-- Do not assume I have advanced technical knowledge.
-- Do not ask me to share sensitive personal information unless it is essential.</pre>
-        </div>
-        <p class="result-note">Maya’s profile is short, honest, and only includes what is useful. Notice that it does not reveal anything sensitive.</p>
-
-        <h3 class="section-sub">Try This Now</h3>
-        <div class="activity">
-          <h4 class="activity-title">Ask the AI to read your profile back to you</h4>
-          <p>Paste your profile into a new conversation, then send this prompt:</p>
-          <div class="copy-block">
-            <div class="copy-block-head">
-              <span class="copy-block-label">Prompt</span>
-              <button type="button" class="btn-copy">Copy</button>
-            </div>
-            <pre class="copy-text">Read the profile below.
-
-
-Summarize what you know about me in five concise points.
-
-
-Do not add assumptions.
-
-
-Then identify any missing information that would materially improve your ability to help me.</pre>
-          </div>
-          <details class="answer">
-            <summary>Example AI answer <span class="tag">Example</span></summary>
-            <div class="answer-body">
-              <p class="answer-note">Every chatbot is different. The example below is illustrative — it shows how a careful answer separates known facts from unknowns.</p>
-              <p><strong>What I know</strong></p>
-              <ul>
-                <li>You work in community-college administration and coordinate student programs and staff activities.</li>
-                <li>You enjoy gardening and mystery novels, and you are curious about practical everyday uses of AI.</li>
-                <li>Your goals include improving your public speaking, organizing personal projects, and becoming more confident with AI.</li>
-                <li>You learn best through examples first and short practical exercises.</li>
-                <li>You prefer to avoid unnecessary jargon and want me not to assume technical knowledge.</li>
-              </ul>
-              <p><strong>What remains unknown</strong></p>
-              <ul>
-                <li>How much time you can set aside for public-speaking practice.</li>
-                <li>Whether you have a budget in mind for tools or classes.</li>
-                <li>Which devices you prefer to use.</li>
-                <li>Whether you have specific deadlines for your goals.</li>
-              </ul>
-              <p>I have not added assumptions about these.</p>
-            </div>
-          </details>
-        </div>
-
-        <div class="notice-box">
-          <h3>What to Notice</h3>
-          <p>A careful AI answer separates three kinds of information:</p>
+        <h3 class="section-sub">Useful Information to Include</h3>
+        <div class="checklist-box">
           <ul>
-            <li><strong>Facts you supplied</strong> — things you wrote in your profile;</li>
-            <li><strong>Reasonable uncertainty</strong> — things that are genuinely unknown;</li>
-            <li><strong>Unsupported assumptions</strong> — things the AI invents without evidence. Good answers avoid these.</li>
+            <li>Your role or main responsibilities.</li>
+            <li>Common tasks you want help with.</li>
+            <li>Your level of technical experience.</li>
+            <li>Recurring goals or priorities.</li>
+            <li>Constraints such as time, budget, tools, or policies.</li>
+            <li>Accessibility, language, or communication needs.</li>
           </ul>
         </div>
 
-        <div class="variation-box">
-          <h3>Optional Variation</h3>
-          <p>Trim your profile. Remove anything that is not relevant to how you plan to use AI.</p>
-          <p>A profile does not need to be an autobiography. A short, honest page is easier to maintain and less risky to share.</p>
+        <h3 class="section-sub">Do Not Include</h3>
+        <div class="notice-box">
+          <ul>
+            <li>Passwords, authentication codes, or account recovery details.</li>
+            <li>Confidential records from work, clients, students, patients, or customers.</li>
+            <li>Banking, payment, identification, or private legal information.</li>
+            <li>Unnecessary sensitive personal information about you or other people.</li>
+          </ul>
         </div>
 
-        <div class="copilot-tip">
-          <strong class="copilot-tip-label">Microsoft Copilot</strong>
-          <p>For a standing profile, add your <code>profile.md</code> content to <strong>Custom Instructions</strong> in your Copilot personalization settings (where available), or tell Copilot to “remember that…” your key facts so they are saved to Copilot Memory.</p>
+        <h3 class="section-sub">Try This Now</h3>
+        <p>Answer these questions in short phrases. You will use the answers in your Custom Instructions later.</p>
+        <div class="copy-block">
+          <div class="copy-block-head">
+            <span class="copy-block-label">Reflection questions</span>
+            <button type="button" class="btn-copy">Copy</button>
+          </div>
+          <pre class="copy-text">What is my role or main responsibility?
+
+What tasks do I commonly ask Copilot to help with?
+
+What is my experience level with the main topics I ask about?
+
+What goals or priorities should Copilot keep in mind?
+
+What constraints matter most?
+
+Are there language, accessibility, or communication needs Copilot should know?</pre>
         </div>
+
+        <details class="answer">
+          <summary>Example answers <span class="tag">Example</span></summary>
+          <div class="answer-body">
+            <p>Maya is a fictional learner used throughout this tutorial. Her answers might look like this:</p>
+            <ul>
+              <li>I work as a community-college administrator.</li>
+              <li>I organize student programs and help coordinate staff activities.</li>
+              <li>I commonly use Copilot for drafting messages, summarizing notes, planning meetings, and learning new office tools.</li>
+              <li>I am comfortable using ordinary office software but do not consider myself technically experienced.</li>
+              <li>My current priorities are clear communication, practical planning, and saving time without losing accuracy.</li>
+              <li>I prefer clear and simple language.</li>
+            </ul>
+          </div>
+        </details>
 
         <label class="completion-check">
-          <input type="checkbox" data-progress="s2">
-          <span>I completed this section.</span>
+          <input type="checkbox" data-progress="s1">
+          <span>I decided what Copilot should know about me.</span>
         </label>
 
-        <nav class="lesson-nav" aria-label="Section 2 navigation">
-          <a href="#meet-your-ai" class="btn btn-ghost">← Back: Meet Your AI</a>
-          <a href="#teach-it-how-you-work" class="btn btn-primary">Next: Teach It How You Work →</a>
+        <nav class="lesson-nav" aria-label="Section 1 navigation">
+          <a href="#top" class="btn btn-ghost">Back to Start</a>
+          <a href="#how-copilot-should-respond" class="btn btn-primary">Next: Response Preferences</a>
         </nav>
       </div>
     </section>
 
-    <!-- ============================ SECTION 3 ============================ -->
-    <section class="lesson" id="teach-it-how-you-work" aria-labelledby="s3-title">
+    <section class="lesson" id="how-copilot-should-respond" aria-labelledby="s2-title">
       <div class="lesson-inner">
         <header class="lesson-head">
-          <span class="lesson-number" aria-hidden="true">3</span>
+          <span class="lesson-number" aria-hidden="true">2</span>
           <div>
-            <h2 id="s3-title">Teach It How You Work</h2>
-            <p class="lesson-tagline">Tell the AI how to communicate and collaborate with you.</p>
+            <h2 id="s2-title">Decide How Copilot Should Respond</h2>
+            <p class="lesson-tagline">Set expectations for tone, length, structure, and feedback.</p>
           </div>
         </header>
 
@@ -431,397 +192,355 @@ Then identify any missing information that would materially improve your ability
           <img src="images/03-teach-it-how-you-work.png"
                alt="A cheerful robot helping write a list of communication and working preferences."
                width="311" height="309" loading="lazy">
-          <figcaption>Behavior instructions make answers consistent across many questions.</figcaption>
+          <figcaption>Response preferences help Copilot answer in a style you can use.</figcaption>
         </figure>
 
         <div class="goal-box" role="note">
-          <h3 class="goal-title">🎯 Learning Goal</h3>
-          <p>Tell the AI how to communicate and collaborate with you.</p>
+          <h3 class="goal-title">Learning Goal</h3>
+          <p>Choose clear response preferences that Copilot can apply across conversations.</p>
         </div>
 
         <div class="explanation">
           <h3>The Big Idea</h3>
-          <p>We will save these instructions as <code>skill.md</code>. The name is a useful, portable label — not a universal technical standard that every chatbot requires. What matters is the content.</p>
-          <p>Here is the distinction to remember:</p>
-          <ul>
-            <li><code>profile.md</code> describes <strong>who you are</strong>;</li>
-            <li><code>skill.md</code> describes <strong>how the AI should behave</strong>.</li>
-          </ul>
+          <p>Personalization is not only background information. It also tells Copilot how to communicate with you: how direct to be, how much detail to include, when to ask questions, and how to handle uncertainty.</p>
         </div>
 
-        <h3 class="section-sub">Your Working Instructions Template</h3>
-        <div class="copy-block">
-          <div class="copy-block-head">
-            <span class="copy-block-label">Markdown template</span>
-            <button type="button" class="btn-copy">Copy</button>
+        <h3 class="section-sub">Preferences to Consider</h3>
+        <div class="comparison" aria-label="Types of response preferences">
+          <div class="comparison-col">
+            <h4>Style</h4>
+            <ul>
+              <li>Tone: plain, friendly, formal, neutral, direct.</li>
+              <li>Length: concise, detailed, or short first with details after.</li>
+              <li>Structure: headings, bullets, numbered steps, examples.</li>
+            </ul>
           </div>
-          <pre class="copy-text"># How to Work With Me
-
-
-## Communication
-- Give the main answer first.
-- Use clear, everyday language.
-- Explain unfamiliar terms.
-- Use examples when useful.
-
-
-## Reasoning
-- Identify important tradeoffs.
-- Separate facts from assumptions.
-- State uncertainty clearly.
-- Politely challenge weak assumptions.
-
-
-## Recommendations
-- Consider my goals and constraints.
-- Avoid expensive recommendations unless the benefit is clear.
-- Give no more than three strong options unless I request more.
-
-
-## Working Style
-- Break large tasks into manageable steps.
-- Do not overwhelm me with advanced features.
-- End with one practical next action.</pre>
+          <div class="comparison-arrow" aria-hidden="true">+</div>
+          <div class="comparison-col comparison-col-good">
+            <h4>Judgment</h4>
+            <ul>
+              <li>Explain unfamiliar terms.</li>
+              <li>Identify important assumptions.</li>
+              <li>Give honest feedback.</li>
+              <li>Ask questions before major recommendations.</li>
+            </ul>
+          </div>
         </div>
 
         <h3 class="section-sub">Try This Now</h3>
-
-        <div class="activity">
-          <h4 class="activity-title">Activity 1: Without instructions</h4>
-          <p>Ask this generic question first:</p>
-          <div class="copy-block">
-            <div class="copy-block-head">
-              <span class="copy-block-label">Prompt</span>
-              <button type="button" class="btn-copy">Copy</button>
-            </div>
-            <pre class="copy-text">Explain cloud storage.</pre>
+        <p>Choose five to ten response preferences that would make Copilot easier for you to use.</p>
+        <div class="copy-block">
+          <div class="copy-block-head">
+            <span class="copy-block-label">Preference choices</span>
+            <button type="button" class="btn-copy">Copy</button>
           </div>
-          <details class="answer">
-            <summary>Example AI answer <span class="tag">Example</span></summary>
-            <div class="answer-body">
-              <p class="answer-note">Every chatbot is different. The example below is illustrative.</p>
-              <p>Cloud storage means storing files on remote servers instead of only on your own device. You can reach them from different devices, and the provider handles backups and maintenance. Popular options include Google Drive, OneDrive, and Dropbox. Free plans usually offer a limited amount of space.</p>
-              <p>This is accurate but not tailored to you.</p>
-            </div>
-          </details>
-        </div>
-
-        <div class="activity">
-          <h4 class="activity-title">Activity 2: With your working instructions</h4>
-          <p>Now paste your <code>profile.md</code> and <code>skill.md</code> into the conversation, then ask:</p>
-          <div class="copy-block">
-            <div class="copy-block-head">
-              <span class="copy-block-label">Prompt</span>
-              <button type="button" class="btn-copy">Copy</button>
-            </div>
-            <pre class="copy-text">Use my profile and working instructions to explain cloud storage to me.</pre>
-          </div>
-          <details class="answer">
-            <summary>Example AI answer <span class="tag">Example</span></summary>
-            <div class="answer-body">
-              <p class="answer-note">Every chatbot is different. The example below is illustrative.</p>
-              <p><strong>Main answer first:</strong> cloud storage keeps your files in a secure online space you can reach from your computer, phone, or tablet.</p>
-              <p><strong>Simple analogy:</strong> think of it like a filing cabinet that lives online. The cabinet stays in one place, and you can open it from anywhere with an internet connection.</p>
-              <p><strong>One practical example:</strong> save a draft of a staff newsletter to cloud storage and open it later on your phone without emailing it to yourself.</p>
-              <p><strong>One privacy consideration:</strong> check who can see each file, and avoid storing sensitive documents you would not keep in an open office drawer.</p>
-              <p><strong>Your next step:</strong> try saving one low-risk file, such as your garden notes, and open it from a second device.</p>
-              <p>This answer follows your working instructions. It is based on general knowledge, and features vary by provider.</p>
-            </div>
-          </details>
-          <p class="result-note">The second answer gives the main point first, uses a familiar analogy, avoids jargon, and ends with one concrete next step.</p>
+          <pre class="copy-text">Use clear, simple language.
+Give the main answer first.
+Organize longer answers with headings.
+Use bullet points when they improve readability.
+Explain unfamiliar technical terms.
+Give examples before theory.
+Identify important assumptions.
+Point out meaningful risks and trade-offs.
+Give honest feedback rather than simply agreeing with me.
+Ask a clarifying question when missing information would materially change the answer.
+Do not invent personal facts or claim access to information I have not supplied.</pre>
         </div>
 
         <div class="notice-box">
           <h3>What to Notice</h3>
-          <p>Behavioral instructions can improve <strong>consistency</strong> across many different questions — not just this one. Once the AI follows your style once, you can apply the same instructions to other topics.</p>
-          <p>It is also realistic to expect imperfection. No chatbot follows every instruction perfectly, every time.</p>
+          <p>Clear preferences are easier to follow than vague ones. "Use clear and simple language" is stronger than "be helpful." "Ask when missing information would materially change the answer" is stronger than "ask questions."</p>
         </div>
 
-        <div class="variation-box">
-          <h3>Optional Variation</h3>
-          <p>Add one preference of your own to <code>skill.md</code>, such as:</p>
-          <ul>
-            <li>ask fewer follow-up questions;</li>
-            <li>use metric units;</li>
-            <li>include pros and cons;</li>
-            <li>give a short answer before details;</li>
-            <li>avoid motivational language.</li>
-          </ul>
+        <label class="completion-check">
+          <input type="checkbox" data-progress="s2">
+          <span>I chose how Copilot should respond.</span>
+        </label>
+
+        <nav class="lesson-nav" aria-label="Section 2 navigation">
+          <a href="#what-copilot-should-know" class="btn btn-ghost">Back: What Copilot Should Know</a>
+          <a href="#create-custom-instructions" class="btn btn-primary">Next: Create Instructions</a>
+        </nav>
+      </div>
+    </section>
+
+    <section class="lesson" id="create-custom-instructions" aria-labelledby="s3-title">
+      <div class="lesson-inner">
+        <header class="lesson-head">
+          <span class="lesson-number" aria-hidden="true">3</span>
+          <div>
+            <h2 id="s3-title">Create the Custom Instructions</h2>
+            <p class="lesson-tagline">Combine your background and response preferences into one block.</p>
+          </div>
+        </header>
+
+        <figure class="lesson-figure">
+          <img src="images/06-create-your-digital-twin.png"
+               alt="Profile, preferences, priorities, and feedback combining into one friendly AI companion."
+               width="237" height="308" loading="lazy">
+          <figcaption>One concise instruction block is easier to maintain.</figcaption>
+        </figure>
+
+        <div class="goal-box" role="note">
+          <h3 class="goal-title">Learning Goal</h3>
+          <p>Draft one coherent set of Custom Instructions for Copilot.</p>
         </div>
 
-        <div class="copilot-tip">
-          <strong class="copilot-tip-label">Microsoft Copilot</strong>
-          <p><code>skill.md</code> maps most closely to Copilot’s <strong>Custom Instructions</strong>: paste your working-style rules there so they apply to every conversation.</p>
+        <div class="explanation">
+          <h3>The Big Idea</h3>
+          <p>Your Custom Instructions should combine three things: information Copilot should know about you, how Copilot should respond, and how Copilot should handle recommendations and decisions.</p>
+          <p>Keep it reasonably concise. Remove anything that is not relevant, outdated, too private, or too detailed for everyday use.</p>
+        </div>
+
+        <h3 class="section-sub">Template</h3>
+        <p>Copy this template, replace the bracketed text, and delete lines that do not apply.</p>
+        <div class="copy-block">
+          <div class="copy-block-head">
+            <span class="copy-block-label">Custom Instructions template</span>
+            <button type="button" class="btn-copy">Copy</button>
+          </div>
+          <pre class="copy-text">## Background
+
+- I work as [role].
+- My main responsibilities include [responsibilities].
+- I commonly use Copilot for [tasks].
+- My experience with [subject or technology] is [level].
+- My current priorities are [priorities].
+- Important constraints include [constraints].
+
+## How to respond
+
+- Use [plain, professional, concise, detailed] language.
+- Organize longer answers with headings.
+- Use bullet points when they improve readability.
+- Explain unfamiliar technical terms.
+- Identify important assumptions.
+- Give honest feedback rather than simply agreeing with me.
+- Ask a clarifying question when missing information would materially change the answer.
+- Do not invent personal facts or claim access to information I have not supplied.
+
+## Recommendations and decisions
+
+- Consider these priorities: [priorities].
+- Point out meaningful risks and trade-offs.
+- Distinguish facts, estimates, and suggestions.
+- Do not make high-impact decisions on my behalf.</pre>
+        </div>
+
+        <h3 class="section-sub">Completed Example</h3>
+        <div class="copy-block">
+          <div class="copy-block-head">
+            <span class="copy-block-label">Example Custom Instructions</span>
+            <button type="button" class="btn-copy">Copy</button>
+          </div>
+          <pre class="copy-text">## Background
+
+- I work as a community-college administrator.
+- My main responsibilities include organizing student programs and helping coordinate staff activities.
+- I commonly use Copilot for drafting messages, summarizing notes, planning meetings, and learning new office tools.
+- I am comfortable using ordinary office software but do not consider myself technically experienced.
+- My current priorities are clear communication, practical planning, and saving time without losing accuracy.
+- Important constraints include limited time, accessibility for mixed audiences, and avoiding unnecessary jargon.
+
+## How to respond
+
+- Use clear and simple language.
+- Give the main answer first, then add details when useful.
+- Organize longer answers with headings.
+- Use bullet points when they improve readability.
+- Explain unfamiliar technical terms.
+- Identify important assumptions.
+- Give honest feedback rather than simply agreeing with me.
+- Ask a clarifying question when missing information would materially change the answer.
+- Do not invent personal facts or claim access to information I have not supplied.
+
+## Recommendations and decisions
+
+- Consider these priorities: practicality, accuracy, privacy, and time saved.
+- Point out meaningful risks and trade-offs.
+- Distinguish facts, estimates, and suggestions.
+- Do not make high-impact medical, legal, financial, employment, or safety decisions on my behalf.</pre>
+        </div>
+
+        <div class="callout-note" role="note">
+          <p><strong>Before you continue:</strong> read your instructions once as if someone else wrote them. Remove sensitive details, conflicting rules, and anything Copilot does not need for everyday help.</p>
         </div>
 
         <label class="completion-check">
           <input type="checkbox" data-progress="s3">
-          <span>I completed this section.</span>
+          <span>I drafted one consolidated Custom Instructions block.</span>
         </label>
 
         <nav class="lesson-nav" aria-label="Section 3 navigation">
-          <a href="#introduce-yourself" class="btn btn-ghost">← Back: Introduce Yourself</a>
-          <a href="#stay-safe" class="btn btn-primary">Next: Stay Safe and Smart →</a>
+          <a href="#how-copilot-should-respond" class="btn btn-ghost">Back: Response Preferences</a>
+          <a href="#add-to-copilot" class="btn btn-primary">Next: Add to Copilot</a>
         </nav>
       </div>
     </section>
 
-    <!-- ==================== SAFETY CHECKPOINT ==================== -->
-    <section class="lesson lesson--safety" id="stay-safe" aria-labelledby="safety-title">
-      <div class="lesson-inner">
-        <header class="lesson-head">
-          <span class="lesson-number lesson-number--safety" aria-hidden="true">✦</span>
-          <div>
-            <p class="checkpoint-label">Security Checkpoint</p>
-            <h2 id="safety-title">Stay Safe and Smart</h2>
-            <p class="lesson-tagline">Personalize carefully — without oversharing.</p>
-          </div>
-        </header>
-
-        <figure class="lesson-figure">
-          <img src="images/08-stay-safe-and-smart.jpg"
-               alt="A friendly robot beside a shield and a checklist of safe AI practices."
-               width="800" height="800" loading="lazy">
-          <figcaption>Share the minimum useful context — not everything you have.</figcaption>
-        </figure>
-
-        <div class="explanation">
-          <h3>The Big Idea</h3>
-          <p>Personalization does <strong>not</strong> require oversharing. You can give a chatbot plenty of helpful context while keeping sensitive information to yourself.</p>
-        </div>
-
-        <div class="safety-principles">
-          <h3>Good Safety Principles</h3>
-          <ul>
-            <li>Start with low-risk information.</li>
-            <li>Share only what is relevant to the task.</li>
-            <li>Do not upload passwords or authentication codes.</li>
-            <li>Do not upload banking or payment information.</li>
-            <li>Avoid government identification numbers.</li>
-            <li>Do not share confidential employer or client information.</li>
-            <li>Remove unnecessary information about other people.</li>
-            <li>Be cautious with medical, legal, and financial records.</li>
-            <li>Review stored memories and uploaded files periodically.</li>
-            <li>Verify important claims independently.</li>
-            <li>Keep human judgment in control.</li>
-          </ul>
-        </div>
-
-        <div class="checklist-box">
-          <h3>Before You Share a File</h3>
-          <div class="copy-block">
-            <div class="copy-block-head">
-              <span class="copy-block-label">Pre-upload checklist</span>
-              <button type="button" class="btn-copy">Copy</button>
-            </div>
-            <pre class="copy-text">Before sharing a file:
-
-
-□ Is this file necessary for the task?
-□ Does it contain passwords, account numbers, or identification?
-□ Does it contain confidential work information?
-□ Does it expose another person’s private information?
-□ Can I remove unnecessary sensitive details?
-□ Would a short summary be safer than the full file?</pre>
-          </div>
-        </div>
-
-        <div class="callout-note" role="note">
-          <p><strong>The goal is not to tell the AI everything.</strong> The goal is to provide the minimum useful context for the task.</p>
-        </div>
-
-        <div class="comparison" aria-label="Oversharing compared with safer approach">
-          <div class="comparison-col">
-            <h4>Oversharing</h4>
-            <p>Uploading a complete personal document containing unrelated private information.</p>
-          </div>
-          <div class="comparison-arrow" aria-hidden="true">→</div>
-          <div class="comparison-col comparison-col-good">
-            <h4>Safer Approach</h4>
-            <p>Creating a short summary containing only the information needed for the current task.</p>
-          </div>
-        </div>
-
-        <div class="copilot-tip">
-          <strong class="copilot-tip-label">Microsoft Copilot</strong>
-          <p>Official docs state that files you upload to Copilot are stored securely for up to 18 months and are not used for model training. Even so, follow the pre-upload checklist above, and review your Saved memories in your personalization settings.</p>
-        </div>
-
-        <label class="completion-check">
-          <input type="checkbox" data-progress="safety">
-          <span>I reviewed this safety checkpoint.</span>
-        </label>
-
-        <nav class="lesson-nav" aria-label="Safety checkpoint navigation">
-          <a href="#teach-it-how-you-work" class="btn btn-ghost">← Back: Teach It How You Work</a>
-          <a href="#give-it-useful-knowledge" class="btn btn-primary">Next: Give It Useful Knowledge →</a>
-        </nav>
-      </div>
-    </section>
-
-    <!-- ============================ SECTION 4 ============================ -->
-    <section class="lesson" id="give-it-useful-knowledge" aria-labelledby="s4-title">
+    <section class="lesson lesson--copilot" id="add-to-copilot" aria-labelledby="s4-title">
       <div class="lesson-inner">
         <header class="lesson-head">
           <span class="lesson-number" aria-hidden="true">4</span>
           <div>
-            <h2 id="s4-title">Give It Useful Knowledge</h2>
-            <p class="lesson-tagline">Don’t expect the AI to know everything — hand it what it needs.</p>
+            <h2 id="s4-title">Add the Instructions to Copilot</h2>
+            <p class="lesson-tagline">Use Copilot's Personalization settings.</p>
           </div>
         </header>
 
-        <figure class="lesson-figure">
-          <img src="images/04-give-it-useful-knowledge.png"
-               alt="A robot organizing folders of useful documents, such as projects, travel plans, résumés, spreadsheets, and PDFs."
-               width="241" height="310" loading="lazy">
-          <figcaption>Small, low-risk knowledge files make answers concrete.</figcaption>
+        <figure class="lesson-figure lesson-figure--wide">
+          <img src="images/copilot-custom-instructions.png"
+               alt="Microsoft Copilot Personalization settings showing the Custom Instructions text field and saved-instructions confirmation."
+               width="783" height="631" loading="lazy">
+          <figcaption>In the visible interface: Chat settings, Personalization, Custom Instructions, then Save instructions.</figcaption>
         </figure>
 
         <div class="goal-box" role="note">
-          <h3 class="goal-title">🎯 Learning Goal</h3>
-          <p>Provide relevant, low-risk documents instead of expecting the AI to know everything.</p>
-        </div>
-
-        <div class="callout-note" role="note">
-          <p><strong>Start with non-sensitive information.</strong> Give the AI what it needs for the task — no more, no less.</p>
+          <h3 class="goal-title">Learning Goal</h3>
+          <p>Paste and save your completed instructions in Copilot's Custom Instructions field.</p>
         </div>
 
         <div class="explanation">
-          <h3>The Big Idea</h3>
-          <p>Your chatbot has broad general knowledge, but it does not know <em>your</em> details. Simple, low-risk knowledge files give it exactly what it needs.</p>
-          <p>Good beginner-friendly examples:</p>
-          <ul>
-            <li>a résumé;</li>
-            <li>project notes;</li>
-            <li>a reading list;</li>
-            <li>course notes;</li>
-            <li>recipes;</li>
-            <li>a garden plan;</li>
-            <li>a travel itinerary.</li>
-          </ul>
-        </div>
-
-        <h3 class="section-sub">Example Knowledge File</h3>
-        <p>Maya created a small file called <code>garden-plan.md</code> for her balcony garden:</p>
-        <div class="copy-block">
-          <div class="copy-block-head">
-            <span class="copy-block-label">Markdown file — garden-plan.md</span>
-            <button type="button" class="btn-copy">Copy</button>
-          </div>
-          <pre class="copy-text"># Balcony Garden Plan
-
-
-- Location: small apartment balcony
-- Sunlight: approximately four hours each afternoon
-- Space: room for four medium pots
-- Budget: $80
-- Experience: beginner
-- Preference: low-maintenance herbs
-- Goal: grow ingredients I can use in simple meals</pre>
-        </div>
-
-        <h3 class="section-sub">Try This Now</h3>
-        <div class="activity">
-          <h4 class="activity-title">Ask for a plan based only on your file</h4>
-          <p>Paste your own small knowledge file into a conversation, then send this prompt:</p>
-          <div class="copy-block">
-            <div class="copy-block-head">
-              <span class="copy-block-label">Prompt</span>
-              <button type="button" class="btn-copy">Copy</button>
-            </div>
-            <pre class="copy-text">Using only the information in my garden plan, suggest a beginner-friendly setup.
-
-
-Clearly separate:
-
-
-1. information taken from my file;
-2. general gardening knowledge;
-3. assumptions that may need confirmation.</pre>
-          </div>
-          <details class="answer">
-            <summary>Example AI answer <span class="tag">Example</span></summary>
-            <div class="answer-body">
-              <p class="answer-note">Every chatbot is different. The example below is illustrative.</p>
-              <p><strong>From your file</strong></p>
-              <ul>
-                <li>Limited balcony space with room for four medium pots.</li>
-                <li>About four hours of afternoon sunlight.</li>
-                <li>An $80 budget.</li>
-                <li>Beginner experience and a preference for low-maintenance herbs.</li>
-              </ul>
-              <p><strong>General knowledge</strong></p>
-              <ul>
-                <li>Good beginner-friendly choices include basil, chives, parsley, and mint. Mint grows eagerly, so keep it in its own pot.</li>
-                <li>Pots should have drainage holes so roots do not sit in water.</li>
-                <li>Most herbs do best when the soil dries out slightly between waterings — a simple finger test works.</li>
-              </ul>
-              <p><strong>Assumptions that may need confirmation</strong></p>
-              <ul>
-                <li>I am assuming your balcony is not extremely windy, since wind dries pots out quickly.</li>
-                <li>I am assuming local plant availability and climate suit these herbs.</li>
-              </ul>
-              <p><strong>Beginner-friendly setup (within your budget)</strong></p>
-              <ul>
-                <li>Three pots with basil, chives, and parsley — plus a separate pot for mint if you add it.</li>
-                <li>One bag of potting mix and simple drainage (pot feet or a few pebbles).</li>
-              </ul>
-              <p>Tell me if your balcony is windy or if you prefer a different herb, and I can adjust.</p>
-            </div>
-          </details>
+          <h3>Setup Steps</h3>
+          <ol>
+            <li>Open Copilot.</li>
+            <li>Open <strong>Chat settings</strong>.</li>
+            <li>Select <strong>Personalization</strong>.</li>
+            <li>Find <strong>Custom Instructions</strong>.</li>
+            <li>Enter or paste your completed instructions into the text field.</li>
+            <li>Review the content for sensitive or unnecessary information.</li>
+            <li>Select <strong>Save instructions</strong>.</li>
+          </ol>
         </div>
 
         <div class="notice-box">
-          <h3>What to Notice</h3>
-          <p>Chatbots draw from several sources. It helps to know which is which:</p>
-          <ul>
-            <li><strong>General model knowledge</strong> — what the AI learned from its training;</li>
-            <li><strong>Information in the current conversation</strong> — what you pasted just now;</li>
-            <li><strong>Uploaded documents</strong> — files you attach;</li>
-            <li><strong>Project or workspace files</strong> — files a platform keeps for a set of chats;</li>
-            <li><strong>Persistent memory, when supported</strong> — facts the platform stores across conversations.</li>
-          </ul>
-          <p>Not all platforms store or remember documents in the same way. When in doubt, keep your own copy.</p>
+          <h3>Interface Note</h3>
+          <p>Copilot changes over time. The wording, layout, and exact location of these settings may vary by account, organization, region, or product update. If the labels are not identical, look for the same idea: chat settings, personalization, and a field for custom instructions.</p>
         </div>
 
-        <div class="variation-box">
-          <h3>Optional Variation</h3>
-          <p>Create one small, low-risk knowledge file related to:</p>
-          <ul>
-            <li>a hobby;</li>
-            <li>a reading project;</li>
-            <li>a trip;</li>
-            <li>a household task;</li>
-            <li>a course.</li>
-          </ul>
-          <p>Keep it short and non-sensitive — the garden plan above is a good size to imitate.</p>
-        </div>
+        <h3 class="section-sub">Quick Review Before Saving</h3>
+        <div class="copy-block">
+          <div class="copy-block-head">
+            <span class="copy-block-label">Safety review checklist</span>
+            <button type="button" class="btn-copy">Copy</button>
+          </div>
+          <pre class="copy-text">Before saving my Copilot Custom Instructions:
 
-        <div class="copilot-tip">
-          <strong class="copilot-tip-label">Microsoft Copilot</strong>
-          <p>Attach <code>.md</code>, <code>.txt</code>, <code>.pdf</code>, or <code>.docx</code> files directly in Copilot Chat, or add them to a <strong>Copilot Notebook</strong> so Copilot can answer grounded in your references.</p>
+- Did I remove passwords, codes, and account information?
+- Did I remove confidential records?
+- Did I avoid unnecessary sensitive personal information?
+- Are the instructions clear and not contradictory?
+- Are the instructions concise enough to maintain?
+- Do they tell Copilot what to know, how to respond, and what boundaries to respect?</pre>
         </div>
 
         <label class="completion-check">
           <input type="checkbox" data-progress="s4">
-          <span>I completed this section.</span>
+          <span>I added and saved the instructions in Copilot.</span>
         </label>
 
         <nav class="lesson-nav" aria-label="Section 4 navigation">
-          <a href="#stay-safe" class="btn btn-ghost">← Back: Stay Safe and Smart</a>
-          <a href="#grow-together" class="btn btn-primary">Next: Grow Together →</a>
+          <a href="#create-custom-instructions" class="btn btn-ghost">Back: Create Instructions</a>
+          <a href="#test-personalization" class="btn btn-primary">Next: Test It</a>
         </nav>
       </div>
     </section>
 
-    <!-- ============================ SECTION 5 ============================ -->
-    <section class="lesson" id="grow-together" aria-labelledby="s5-title">
+    <section class="lesson" id="test-personalization" aria-labelledby="s5-title">
       <div class="lesson-inner">
         <header class="lesson-head">
           <span class="lesson-number" aria-hidden="true">5</span>
           <div>
-            <h2 id="s5-title">Grow Together</h2>
-            <p class="lesson-tagline">Improve the relationship through correction and feedback.</p>
+            <h2 id="s5-title">Test the Personalization</h2>
+            <p class="lesson-tagline">Check whether Copilot follows the instructions in real answers.</p>
+          </div>
+        </header>
+
+        <figure class="lesson-figure">
+          <img src="images/01-meet-your-ai.png"
+               alt="A beginner having a friendly conversation with a cheerful AI robot."
+               width="306" height="309" loading="lazy">
+          <figcaption>Testing should focus on behavior, not just repetition.</figcaption>
+        </figure>
+
+        <div class="goal-box" role="note">
+          <h3 class="goal-title">Learning Goal</h3>
+          <p>Confirm that Copilot uses your instructions in a new conversation.</p>
+        </div>
+
+        <div class="explanation">
+          <h3>The Big Idea</h3>
+          <p>After saving your instructions, start a new Copilot conversation. Ask questions that reveal whether Copilot is following your background, tone, structure, assumptions, and boundaries.</p>
+          <p>Do not only ask Copilot to repeat the instructions. Check whether it applies them.</p>
+        </div>
+
+        <h3 class="section-sub">Test Prompts</h3>
+        <div class="copy-block">
+          <div class="copy-block-head">
+            <span class="copy-block-label">Prompts to test personalization</span>
+            <button type="button" class="btn-copy">Copy</button>
+          </div>
+          <pre class="copy-text">Summarize how you understand my role and response preferences. Do not add assumptions.
+
+Explain a technical topic using the level of detail I requested.
+
+Give me feedback on this plan and identify its main risks.
+
+What assumptions should you avoid making about me?
+
+Create a practical recommendation for one of my recurring tasks. Distinguish facts, estimates, and suggestions.</pre>
+        </div>
+
+        <h3 class="section-sub">What to Check</h3>
+        <div class="comparison" aria-label="Testing checklist">
+          <div class="comparison-col">
+            <h4>Good Signs</h4>
+            <ul>
+              <li>Copilot uses the right level of detail.</li>
+              <li>It respects your role, goals, and constraints.</li>
+              <li>It labels assumptions and trade-offs.</li>
+              <li>It asks when missing information matters.</li>
+            </ul>
+          </div>
+          <div class="comparison-arrow" aria-hidden="true">+</div>
+          <div class="comparison-col comparison-col-good">
+            <h4>Warning Signs</h4>
+            <ul>
+              <li>It invents personal facts.</li>
+              <li>It ignores your preferred tone or length.</li>
+              <li>It gives risky advice too confidently.</li>
+              <li>It repeats the instructions without applying them.</li>
+            </ul>
+          </div>
+        </div>
+
+        <details class="answer">
+          <summary>Example testing result <span class="tag">Example</span></summary>
+          <div class="answer-body">
+            <p>If Maya asks for feedback on a meeting plan, a useful Copilot answer might start with a brief recommendation, use headings, identify risks, and say which assumptions it is making. That shows Copilot is applying the instructions.</p>
+            <p>If Copilot writes a long technical explanation with no headings and assumes Maya is an advanced user, the instructions need revision.</p>
+          </div>
+        </details>
+
+        <label class="completion-check">
+          <input type="checkbox" data-progress="s5">
+          <span>I tested Copilot in a new conversation.</span>
+        </label>
+
+        <nav class="lesson-nav" aria-label="Section 5 navigation">
+          <a href="#add-to-copilot" class="btn btn-ghost">Back: Add to Copilot</a>
+          <a href="#improve-instructions" class="btn btn-primary">Next: Improve It</a>
+        </nav>
+      </div>
+    </section>
+
+    <section class="lesson" id="improve-instructions" aria-labelledby="s6-title">
+      <div class="lesson-inner">
+        <header class="lesson-head">
+          <span class="lesson-number" aria-hidden="true">6</span>
+          <div>
+            <h2 id="s6-title">Improve the Instructions</h2>
+            <p class="lesson-tagline">Edit the Custom Instructions directly when Copilot needs better guidance.</p>
           </div>
         </header>
 
@@ -829,886 +548,231 @@ Clearly separate:
           <img src="images/05-grow-together.png"
                alt="A friendly robot watering a growing plant while reviewing feedback."
                width="228" height="306" loading="lazy">
-          <figcaption>Correction is not failure — it is how the relationship improves.</figcaption>
+          <figcaption>Small revisions can make Copilot more consistent.</figcaption>
         </figure>
 
         <div class="goal-box" role="note">
-          <h3 class="goal-title">🎯 Learning Goal</h3>
-          <p>Improve the working relationship through correction and feedback.</p>
+          <h3 class="goal-title">Learning Goal</h3>
+          <p>Use real Copilot answers to improve your Custom Instructions.</p>
         </div>
 
         <div class="explanation">
           <h3>The Big Idea</h3>
-          <p>You will save corrections in <code>feedback.md</code>. Correction is not a failure — it is part of building a more useful working relationship, just like working with a human colleague.</p>
-          <p>To be clear: you are not retraining the underlying model. You are giving it better instructions and context for your conversations.</p>
+          <p>Custom Instructions are not something you write once and forget forever. When Copilot gives an answer that is too long, too vague, too confident, or poorly matched to your needs, return to the Custom Instructions field and revise the text.</p>
         </div>
 
-        <h3 class="section-sub">Your Feedback Template</h3>
+        <h3 class="section-sub">When to Revise</h3>
+        <div class="checklist-box">
+          <ul>
+            <li>Copilot gives too much or too little detail.</li>
+            <li>The tone is unsuitable.</li>
+            <li>Important priorities are ignored.</li>
+            <li>Your role or responsibilities change.</li>
+            <li>Instructions conflict with each other.</li>
+            <li>The content has become outdated.</li>
+          </ul>
+        </div>
+
+        <h3 class="section-sub">Revision Examples</h3>
         <div class="copy-block">
           <div class="copy-block-head">
-            <span class="copy-block-label">Markdown template</span>
+            <span class="copy-block-label">Instruction edits</span>
             <button type="button" class="btn-copy">Copy</button>
           </div>
-          <pre class="copy-text"># Feedback and Corrections
+          <pre class="copy-text">If answers are too long:
+- Give the main answer in the first three sentences, then add details only when useful.
 
+If answers are too vague:
+- Include one practical example when explaining a new concept.
 
-## What Worked Well
--
+If Copilot agrees too easily:
+- Give honest feedback and point out weak assumptions.
 
+If Copilot makes unsupported guesses:
+- Do not invent personal facts. Clearly separate what I supplied from assumptions.
 
-## What Was Not Helpful
--
-
-
-## Corrections
--
-
-
-## New Preferences
--
-
-
-## Things That Have Changed
--</pre>
+If recommendations feel risky:
+- Point out meaningful risks and trade-offs before recommending a path.</pre>
         </div>
 
-        <h3 class="section-sub">Try This Now</h3>
-
-        <div class="activity">
-          <h4 class="activity-title">See the problem first</h4>
-          <p>Here is a fictional AI answer that is <em>not</em> helpful for Maya — it is too long, assumes she has a backyard, and lists too many options:</p>
-          <details class="answer">
-            <summary>Example — an unhelpful answer <span class="tag">Example</span></summary>
-            <div class="answer-body">
-              <p class="answer-note">This is a fictional example of a poor answer, for comparison.</p>
-              <p>“Maya, to get started with container gardening you will want to assess your backyard’s sunlight patterns, soil drainage, and overall layout. Consider raised beds, a drip irrigation system, a greenhouse corner, a cold frame, compost bins, rain barrels, an annual crop rotation schedule, plus a dedicated herb spiral… Here are nine more options to explore…”</p>
-            </div>
-          </details>
-          <p class="result-note">Too detailed, wrong space, too many options.</p>
-        </div>
-
-        <div class="activity">
-          <h4 class="activity-title">Send a correction</h4>
-          <p>Copy Maya’s correction and adapt it to your own situation:</p>
-          <div class="copy-block">
-            <div class="copy-block-head">
-              <span class="copy-block-label">Prompt</span>
-              <button type="button" class="btn-copy">Copy</button>
-            </div>
-            <pre class="copy-text">This is too detailed for me, and I do not have a backyard. I only have a small balcony.
-
-
-In future:
-
-
-- give me a short recommendation first;
-- provide no more than three options;
-- clearly label assumptions.</pre>
-          </div>
-          <details class="answer">
-            <summary>Example AI answer after the correction <span class="tag">Example</span></summary>
-            <div class="answer-body">
-              <p class="answer-note">Every chatbot is different. The example below is illustrative.</p>
-              <p>Thank you — I will assume a small balcony from now on, not a backyard.</p>
-              <p><strong>Short recommendation:</strong> start with two easy herbs in pots: basil and chives.</p>
-              <p><strong>Three options:</strong></p>
-              <ol>
-                <li>Basil and chives in separate medium pots in the sunniest part of the balcony.</li>
-                <li>One self-watering pot with a single herb, if you want the least maintenance.</li>
-                <li>Start with a small indoor herb kit if the balcony gets less sun than expected.</li>
-              </ol>
-              <p><strong>Assumptions:</strong> I am assuming at least four hours of sun and that you can water most days. If either is wrong, tell me.</p>
-              <p>Would you like recommendations kept to three options or fewer from now on?</p>
-            </div>
-          </details>
-          <p class="result-note">The corrected answer is short, limited to three options, and clearly labels its assumptions. It also avoids repeating the backyard mistake.</p>
-        </div>
-
-        <h3 class="section-sub">Record It in Your Feedback File</h3>
-        <p>Maya saved the change in <code>feedback.md</code> so it would not be lost between conversations:</p>
-        <div class="copy-block">
-          <div class="copy-block-head">
-            <span class="copy-block-label">Markdown file — feedback.md (updated)</span>
-            <button type="button" class="btn-copy">Copy</button>
-          </div>
-          <pre class="copy-text"># Feedback and Corrections
-
-
-## What Worked Well
-- Practical examples are useful.
-- Short summaries help me understand the recommendation quickly.
-
-
-## What Was Not Helpful
-- The previous answer was too detailed.
-- Too many options made the answer harder to use.
-
-
-## Corrections
-- I live in an apartment.
-- I have a small balcony, not a backyard.
-
-
-## New Preferences
-- Give me a short recommendation first.
-- Provide no more than three strong options.
-- Label assumptions clearly.
-
-
-## Things That Have Changed
--</pre>
-        </div>
-
-        <h3 class="section-sub">Your Own Feedback Notes</h3>
-        <p>Use the box below to jot down one thing that worked, one correction, and one new preference from your own chat. Your notes stay in your browser for this session only and are never uploaded.</p>
+        <h3 class="section-sub">Your Revision Notes</h3>
+        <p>Use this temporary box while deciding what to change. These notes stay in this browser tab for this session only and are not uploaded.</p>
         <div class="notes-box">
-          <label for="feedback-notes">My feedback notes</label>
-          <textarea id="feedback-notes" rows="8" placeholder="What worked well:&#10;&#10;Correction:&#10;&#10;New preference:"></textarea>
-          <button type="button" id="download-notes" class="btn btn-primary">Download my notes</button>
-          <p class="note-hint">Notes are kept in this browser tab for the current session only and are not saved automatically. Download them if you want to keep them.</p>
-        </div>
+          <label for="feedback-notes">Notes for my next Custom Instructions edit</label>
+          <textarea id="feedback-notes" rows="8" placeholder="What Copilot did well:
 
-        <div class="notice-box">
-          <h3>What to Notice</h3>
-          <p>Three practical realities:</p>
-          <ul>
-            <li><strong>Important corrections should be saved explicitly</strong> — do not rely on memory alone.</li>
-            <li><strong>Chatbot memory may not always be available</strong> — it varies by product, plan, and account.</li>
-            <li><strong>Persistent memory may differ by product or account</strong>, so keep your own copy of the Markdown files.</li>
-          </ul>
-        </div>
+What needs to change:
 
-        <div class="variation-box">
-          <h3>Optional Variation</h3>
-          <p>Review one recent AI answer and record:</p>
-          <ul>
-            <li>one thing that worked;</li>
-            <li>one correction;</li>
-            <li>one new preference.</li>
-          </ul>
-          <p>That is all it takes to complete your first feedback round.</p>
-        </div>
-
-        <div class="copilot-tip">
-          <strong class="copilot-tip-label">Microsoft Copilot</strong>
-          <p>After a correction, tell Copilot to “remember that…” so the change is saved to Copilot Memory. You can review, edit, or delete saved memories — or turn Copilot Memory off.</p>
-        </div>
-
-        <label class="completion-check">
-          <input type="checkbox" data-progress="s5">
-          <span>I completed this section.</span>
-        </label>
-
-        <nav class="lesson-nav" aria-label="Section 5 navigation">
-          <a href="#give-it-useful-knowledge" class="btn btn-ghost">← Back: Give It Useful Knowledge</a>
-          <a href="#create-your-digital-twin" class="btn btn-primary">Next: Create Your Digital Twin →</a>
-        </nav>
-      </div>
-    </section>
-
-    <!-- ============================ SECTION 6 ============================ -->
-    <section class="lesson" id="create-your-digital-twin" aria-labelledby="s6-title">
-      <div class="lesson-inner">
-        <header class="lesson-head">
-          <span class="lesson-number" aria-hidden="true">6</span>
-          <div>
-            <h2 id="s6-title">Create Your Digital Twin</h2>
-            <p class="lesson-tagline">Combine everything into one consistent AI companion.</p>
-          </div>
-        </header>
-
-        <figure class="lesson-figure">
-          <img src="images/06-create-your-digital-twin.png"
-               alt="Profile, skills, principles, knowledge, and feedback combining into one friendly AI companion."
-               width="237" height="308" loading="lazy">
-          <figcaption>One structure, built from many small files.</figcaption>
-        </figure>
-
-        <div class="goal-box" role="note">
-          <h3 class="goal-title">🎯 Learning Goal</h3>
-          <p>Combine your profile, working instructions, principles, useful knowledge, and feedback.</p>
-        </div>
-
-        <div class="explanation">
-          <h3>The Big Idea</h3>
-          <p>We add one more file: <code>principles.md</code>. Principles describe how you tend to evaluate choices. They are different from:</p>
-          <ul>
-            <li>profile facts (who you are);</li>
-            <li>communication preferences (how the AI talks);</li>
-            <li>knowledge documents (what the AI should know);</li>
-            <li>corrections (what to stop doing).</li>
-          </ul>
-        </div>
-
-        <h3 class="section-sub" id="principles">Your Principles Template</h3>
-        <div class="copy-block">
-          <div class="copy-block-head">
-            <span class="copy-block-label">Markdown template — principles.md</span>
-            <button type="button" class="btn-copy">Copy</button>
-          </div>
-          <pre class="copy-text"># My Principles
-
-
-- Prefer simple solutions over complicated ones.
-- Consider long-term cost, not only purchase price.
-- Protect privacy when a convenient alternative exists.
-- Learn through small experiments.
-- Evidence is more useful than confident opinions.
-- Reversible decisions can be made faster than irreversible ones.</pre>
-        </div>
-
-        <h3 class="section-sub">The Completed Structure</h3>
-        <p>Here is what Maya’s AI companion looks like as a set of files:</p>
-        <div class="copy-block">
-          <div class="copy-block-head">
-            <span class="copy-block-label">Folder structure</span>
-            <button type="button" class="btn-copy">Copy</button>
-          </div>
-          <pre class="copy-text">AI Companion
-├── profile.md       — who I am
-├── skill.md         — how to work with me
-├── principles.md    — how I tend to make decisions
-├── knowledge/       — information relevant to my activities
-└── feedback.md      — corrections and evolving preferences</pre>
-        </div>
-
-        <div class="definition-box">
-          <h2 class="definition-title">What it is — and is not</h2>
-          <blockquote>
-            A digital twin persona is a structured AI representation of selected parts of you—your background, preferences, principles, useful knowledge, and corrections—used to make conversations more relevant and consistent.
-          </blockquote>
-          <p class="disclaimer-small">It is <strong>not</strong> conscious. It is <strong>not</strong> a perfect prediction of you. It is <strong>not</strong> an unquestionable authority. And it is <strong>not</strong> permission for an AI to act independently on your behalf.</p>
-        </div>
-
-        <h3 class="section-sub">Try This Now — The Starter Prompt</h3>
-        <p>Paste your finished files into a new conversation, then send this complete starter prompt:</p>
-        <div class="copy-block">
-          <div class="copy-block-head">
-            <span class="copy-block-label">Starter prompt</span>
-            <button type="button" class="btn-copy">Copy</button>
-          </div>
-          <pre class="copy-text">Use the information and instructions I provide in the following order:
-
-
-1. Follow skill.md for how to communicate and assist me.
-2. Use profile.md for stable information about me.
-3. Use principles.md when comparing choices or making recommendations.
-4. Use my knowledge files only when relevant.
-5. Use feedback.md to avoid repeating corrected mistakes.
-6. Do not invent personal facts.
-7. Clearly distinguish supplied information, general knowledge, and assumptions.
-8. Ask a clarifying question only when the missing information would materially change the answer.
-9. Do not make personal, medical, legal, financial, or other high-impact decisions on my behalf.
-
-
-First, summarize your understanding of me in five concise points.
-
-
-Then list:
-
-
-- any conflicts in the information;
-- important missing information;
-- assumptions you should avoid.</pre>
-        </div>
-
-        <details class="answer">
-          <summary>Example AI answer <span class="tag">Example</span></summary>
-          <div class="answer-body">
-            <p class="answer-note">Every chatbot is different. The example below is illustrative.</p>
-            <p><strong>What I understand</strong></p>
-            <ul>
-              <li>You work in community-college administration and are comfortable with office software but not deeply technical.</li>
-              <li>You prefer examples before theory and short, practical guidance without jargon.</li>
-              <li>You value practical, affordable recommendations and simple solutions.</li>
-              <li>You are building confidence with AI and want to improve your public speaking.</li>
-              <li>You garden on a small apartment balcony and enjoy mystery novels.</li>
-            </ul>
-            <p><strong>Conflicts</strong></p>
-            <ul>
-              <li>I did not detect any contradictions in the information provided.</li>
-            </ul>
-            <p><strong>Missing information</strong></p>
-            <ul>
-              <li>How much time you can devote to learning tasks.</li>
-              <li>Deadlines for specific goals.</li>
-              <li>Budget limits for particular projects.</li>
-            </ul>
-            <p><strong>Assumptions to avoid</strong></p>
-            <ul>
-              <li>That you have advanced technical knowledge.</li>
-              <li>That you have access to a backyard or large outdoor space.</li>
-              <li>That you have unlimited time or budget.</li>
-              <li>That uploaded information automatically stays current forever.</li>
-            </ul>
-          </div>
-        </details>
-
-        <div class="notice-box">
-          <h3>What to Notice</h3>
-          <p>The digital twin persona is the <strong>combined structure</strong> — not a single magical prompt. It becomes useful through:</p>
-          <ul>
-            <li>clear profile information;</li>
-            <li>behavioral instructions;</li>
-            <li>decision principles;</li>
-            <li>relevant knowledge;</li>
-            <li>corrections;</li>
-            <li>and maintenance over time.</li>
-          </ul>
-        </div>
-
-        <div class="variation-box">
-          <h3>Optional Variation</h3>
-          <p>Check the AI’s understanding with this short question:</p>
-          <div class="copy-block">
-            <div class="copy-block-head">
-              <span class="copy-block-label">Prompt</span>
-              <button type="button" class="btn-copy">Copy</button>
-            </div>
-            <pre class="copy-text">Based only on the information I have provided, what are the three most important rules you should follow when assisting me?</pre>
-          </div>
-        </div>
-
-        <div class="copilot-tip">
-          <strong class="copilot-tip-label">Microsoft Copilot</strong>
-          <p><strong>Setup A:</strong> paste all your files into a new chat and send the starter prompt. <strong>Setup B:</strong> keep profile, skill, and principles in Custom Instructions, and your knowledge files in a Copilot Notebook.</p>
+Exact instruction I want to add or revise:"></textarea>
+          <p class="note-hint">When you are ready, return to Copilot's Custom Instructions field and edit the saved text directly.</p>
         </div>
 
         <label class="completion-check">
           <input type="checkbox" data-progress="s6">
-          <span>I completed this section.</span>
+          <span>I know how to revise the Custom Instructions directly.</span>
         </label>
 
         <nav class="lesson-nav" aria-label="Section 6 navigation">
-          <a href="#grow-together" class="btn btn-ghost">← Back: Grow Together</a>
-          <a href="#keep-it-up-to-date" class="btn btn-primary">Next: Keep It Up to Date →</a>
+          <a href="#test-personalization" class="btn btn-ghost">Back: Test It</a>
+          <a href="#limits-privacy" class="btn btn-primary">Next: Limits and Privacy</a>
         </nav>
       </div>
     </section>
 
-    <!-- ============================ SECTION 7 ============================ -->
-    <section class="lesson" id="keep-it-up-to-date" aria-labelledby="s7-title">
+    <section class="lesson lesson--safety" id="limits-privacy" aria-labelledby="s7-title">
       <div class="lesson-inner">
         <header class="lesson-head">
-          <span class="lesson-number" aria-hidden="true">7</span>
+          <span class="lesson-number lesson-number--safety" aria-hidden="true">7</span>
           <div>
-            <h2 id="s7-title">Keep It Up to Date</h2>
-            <p class="lesson-tagline">A companion needs occasional care — like any good relationship.</p>
+            <p class="checkpoint-label">Safety Checkpoint</p>
+            <h2 id="s7-title">Limits and Privacy</h2>
+            <p class="lesson-tagline">Personalize Copilot carefully and keep human judgment in control.</p>
           </div>
         </header>
 
         <figure class="lesson-figure">
-          <img src="images/07-keep-it-up-to-date.png"
-               alt="A friendly robot updating an AI companion with a calendar, refresh symbol, checklist, and growing plant."
-               width="214" height="310" loading="lazy">
-          <figcaption>A short monthly or quarterly review keeps your companion accurate.</figcaption>
+          <img src="images/08-stay-safe-and-smart.jpg"
+               alt="A friendly robot beside a shield and a checklist of safe AI practices."
+               width="800" height="800" loading="lazy">
+          <figcaption>Helpful personalization does not require oversharing.</figcaption>
         </figure>
 
         <div class="goal-box" role="note">
-          <h3 class="goal-title">🎯 Learning Goal</h3>
-          <p>Understand that an AI companion needs occasional review as your goals and circumstances change.</p>
+          <h3 class="goal-title">Learning Goal</h3>
+          <p>Understand what Custom Instructions can and cannot do.</p>
         </div>
 
-        <div class="explanation">
-          <h3>The Big Idea</h3>
-          <p>Profiles and preferences can become outdated. Your goals change, your projects end, and new hobbies begin. A short review keeps the AI’s picture of you accurate.</p>
-          <p>We recommend a <strong>monthly or quarterly</strong> review, depending on how often you use AI.</p>
-        </div>
-
-        <h3 class="section-sub">Review Checklist</h3>
-        <div class="copy-block">
-          <div class="copy-block-head">
-            <span class="copy-block-label">Markdown checklist</span>
-            <button type="button" class="btn-copy">Copy</button>
-          </div>
-          <pre class="copy-text"># AI Companion Review
-
-
-- Is my profile still accurate?
-- Have my goals changed?
-- Are any preferences outdated?
-- Have I added useful new knowledge?
-- Are any documents no longer relevant?
-- Have I recorded recent corrections?
-- Do my principles still reflect how I make decisions?
-- Is there information I should remove?</pre>
-        </div>
-
-        <h3 class="section-sub">Try This Now</h3>
-        <div class="activity">
-          <h4 class="activity-title">Ask for a review report</h4>
-          <p>Paste your current files into a conversation and send this prompt:</p>
-          <div class="copy-block">
-            <div class="copy-block-head">
-              <span class="copy-block-label">Prompt</span>
-              <button type="button" class="btn-copy">Copy</button>
-            </div>
-            <pre class="copy-text">Review my profile, skills, principles, knowledge files, and feedback.
-
-
-Identify:
-
-
-1. duplicated information;
-2. contradictions;
-3. outdated details;
-4. unclear instructions;
-5. information that may be unnecessarily sensitive.
-
-
-Do not rewrite anything yet.
-
-
-Give me a review report first.</pre>
-          </div>
-          <details class="answer">
-            <summary>Example review report <span class="tag">Example</span></summary>
-            <div class="answer-body">
-              <p class="answer-note">Every chatbot is different. The example below is illustrative.</p>
-              <p><strong>Duplicated information</strong></p>
-              <ul>
-                <li>Your preference for short answers appears in both <code>profile.md</code> and <code>skill.md</code>. Keeping it in one place would make updates easier.</li>
-              </ul>
-              <p><strong>Contradictions</strong></p>
-              <ul>
-                <li>One file asks for short answers, while an old note in <code>knowledge/</code> asks for exhaustive detail. These conflict.</li>
-              </ul>
-              <p><strong>Possibly outdated</strong></p>
-              <ul>
-                <li>A previous learning goal may no longer be active and may not reflect your current priorities.</li>
-              </ul>
-              <p><strong>Unclear instructions</strong></p>
-              <ul>
-                <li>“Be detailed when needed” does not say when detail is needed. Naming the situations would be clearer.</li>
-              </ul>
-              <p><strong>Information to review</strong></p>
-              <ul>
-                <li>An old uploaded itinerary may no longer be relevant and could be removed.</li>
-              </ul>
-              <p>I have not rewritten anything — this is a report for your review.</p>
-            </div>
-          </details>
-        </div>
-
-        <div class="notice-box">
-          <h3>What to Notice</h3>
-          <p>Regular maintenance helps prevent:</p>
+        <div class="safety-principles">
+          <h3>Important Limits</h3>
           <ul>
-            <li>outdated assumptions;</li>
-            <li>conflicting instructions;</li>
-            <li>unnecessary data retention;</li>
-            <li>repeated mistakes;</li>
-            <li>overly complicated profiles.</li>
+            <li>Custom Instructions guide responses but do not guarantee perfect compliance.</li>
+            <li>Copilot may still need information specific to the current task.</li>
+            <li>Personalization does not give Copilot automatic access to local files, accounts, or private records.</li>
+            <li>Copilot may misunderstand, overlook, or over-apply an instruction.</li>
+            <li>You should verify important medical, legal, financial, employment, or safety-related information.</li>
           </ul>
         </div>
 
-        <div class="variation-box">
-          <h3>Optional Variation</h3>
-          <p>Add a recurring calendar reminder to review your AI companion files — for example, every three months. This tutorial does not integrate with your calendar; a simple reminder is all you need.</p>
+        <div class="notice-box">
+          <h3>Privacy Reminders</h3>
+          <ul>
+            <li>Do not add secrets or unnecessary sensitive information.</li>
+            <li>Use general descriptions instead of private records whenever possible.</li>
+            <li>Remove details that no longer help Copilot assist you.</li>
+            <li>Review your saved instructions when your role, projects, or priorities change.</li>
+          </ul>
         </div>
 
-        <div class="copilot-tip">
-          <strong class="copilot-tip-label">Microsoft Copilot</strong>
-          <p>Re-run the review checklist in a chat, then check your Saved memories and Custom Instructions and remove or update anything outdated.</p>
+        <div class="callout-note" role="note">
+          <p><strong>Use Copilot as a helper, not a decision-maker.</strong> For high-impact decisions, use qualified professionals, official sources, and your own judgment.</p>
         </div>
 
         <label class="completion-check">
           <input type="checkbox" data-progress="s7">
-          <span>I completed this section.</span>
+          <span>I reviewed the limits and privacy guidance.</span>
         </label>
 
         <nav class="lesson-nav" aria-label="Section 7 navigation">
-          <a href="#create-your-digital-twin" class="btn btn-ghost">← Back: Create Your Digital Twin</a>
-          <a href="#what-you-have-built" class="btn btn-primary">Next: What You Have Built →</a>
+          <a href="#improve-instructions" class="btn btn-ghost">Back: Improve It</a>
+          <a href="#portability" class="btn btn-primary">Next: Optional Note</a>
         </nav>
       </div>
     </section>
 
-    <!-- ==================== PLATFORM-SPECIFIC GUIDANCE ==================== -->
-    <section class="lesson lesson--platform" id="platforms" aria-labelledby="platforms-title">
+    <section class="lesson" id="portability" aria-labelledby="s8-title">
       <div class="lesson-inner">
         <header class="lesson-head">
-          <span class="lesson-number lesson-number--platform" aria-hidden="true">✎</span>
+          <span class="lesson-number" aria-hidden="true">8</span>
           <div>
-            <h2 id="platforms-title">Using This Tutorial With Your Chatbot</h2>
-            <p class="lesson-tagline">Optional guidance for ChatGPT, Gemini, Claude, and Microsoft Copilot.</p>
+            <h2 id="s8-title">Optional Portability Note</h2>
+            <p class="lesson-tagline">The concept is broader than one interface.</p>
           </div>
         </header>
 
         <div class="explanation">
-          <h3>Read This First</h3>
-          <p>This section is intentionally general because chatbot features change often and differ by plan, workspace, and region. Treat it as a starting point, not a precise manual.</p>
-          <ul>
-            <li>On accounts that support these features, menu names may differ.</li>
-            <li>The feature name may differ by plan or workspace.</li>
-            <li>Check whether memory is enabled before relying on it.</li>
-            <li>Keep your own local copy of the Markdown files.</li>
-            <li>Uploaded files may not remain available in every future conversation.</li>
-            <li>Some features may depend on account type, region, or organization settings.</li>
-          </ul>
+          <p>The same personalization concepts may also be used with other AI services that provide instruction or personalization features, although their interfaces and capabilities differ.</p>
+          <p>For this tutorial, keep your working setup simple: maintain one clear block of Copilot Custom Instructions and revise it when needed.</p>
         </div>
 
-        <div class="table-wrap">
-          <table class="platform-table">
-            <caption class="sr-only">Where to place profile information, working instructions, files, project context, and memories on each platform.</caption>
-            <thead>
-              <tr>
-                <th scope="col">Platform</th>
-                <th scope="col">Profile or Instructions</th>
-                <th scope="col">File Support</th>
-                <th scope="col">Project Context</th>
-                <th scope="col">Memory Considerations</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <th scope="row">ChatGPT</th>
-                <td>Custom instructions, on accounts that support them</td>
-                <td>Attach files in a conversation; may not persist everywhere</td>
-                <td>Projects can hold shared files and instructions for a set of chats</td>
-                <td>Memory can be enabled or reviewed; ask it what it remembers</td>
-              </tr>
-              <tr>
-                <th scope="row">Gemini</th>
-                <td>Personal-context settings / saved info, where available</td>
-                <td>Attach documents in a conversation</td>
-                <td>Project support varies by plan and product</td>
-                <td>Personal context can be reviewed; availability may depend on account type and region</td>
-              </tr>
-              <tr>
-                <th scope="row">Claude</th>
-                <td>On accounts with memory, you can add entries such as “Remember that…”</td>
-                <td>Attach files; availability depends on plan</td>
-                <td>Some plans support projects with shared context</td>
-                <td>Memory can be viewed and edited in settings where available</td>
-              </tr>
-              <tr>
-                <th scope="row">Microsoft Copilot</th>
-                <td>Custom Instructions and Copilot Memory (saved memories), depending on plan and organization settings</td>
-                <td>Attach files or use Microsoft 365 documents</td>
-                <td>Copilot Notebooks on plans that support them</td>
-                <td>Saved memories can be reviewed, edited, or turned off where available</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-        <p class="table-note">Details in this table are platform-dependent and may change. Verify against the official documentation for your account before relying on them.</p>
+        <label class="completion-check">
+          <input type="checkbox" data-progress="s8">
+          <span>I understand how the personalization concept may transfer elsewhere.</span>
+        </label>
 
-        <div class="platform-blocks">
-          <div class="platform-block">
-            <h3>ChatGPT</h3>
-            <p><strong>Stable profile and working instructions:</strong> place <code>profile.md</code> and <code>skill.md</code> content in custom instructions on accounts that support them, or paste at the start of a conversation.</p>
-            <p><strong>Uploaded files:</strong> attach documents in a conversation when needed for a specific task.</p>
-            <p><strong>Project-specific context:</strong> some plans offer projects that keep files and instructions together for a set of chats.</p>
-            <p><strong>Corrections or memories:</strong> on accounts with memory enabled, you can ask it to remember or forget details — but always keep your own local copy.</p>
-          </div>
-          <div class="platform-block">
-            <h3>Gemini</h3>
-            <p><strong>Stable profile and working instructions:</strong> some accounts offer personal-context or saved-info settings; availability may depend on account type and region.</p>
-            <p><strong>Uploaded files:</strong> attach documents in a conversation for the current task.</p>
-            <p><strong>Project-specific context:</strong> project support varies by plan and product.</p>
-            <p><strong>Corrections or memories:</strong> review saved info periodically and remove anything you no longer want stored.</p>
-          </div>
-          <div class="platform-block">
-            <h3>Claude</h3>
-            <p><strong>Stable profile and working instructions:</strong> on accounts with memory, you can add an entry such as “Remember that I prefer short answers” and review it in settings.</p>
-            <p><strong>Uploaded files:</strong> attach files in a conversation; availability depends on your plan.</p>
-            <p><strong>Project-specific context:</strong> some plans support projects with shared context.</p>
-            <p><strong>Corrections or memories:</strong> correct answers in chat and ask to add the correction to memory; keep your own copy regardless.</p>
-          </div>
-          <div class="platform-block">
-            <h3>Microsoft Copilot</h3>
-            <p><strong>Stable profile and working instructions:</strong> Microsoft 365 Copilot offers Copilot Memory (saved memories) depending on your plan and organization settings.</p>
-            <p><strong>Uploaded files:</strong> attach files in chat or reference Microsoft 365 documents.</p>
-            <p><strong>Project-specific context:</strong> projects or Notebooks are available on plans that support them.</p>
-            <p><strong>Corrections or memories:</strong> you can tell it to remember or forget details where available, and manage saved memories in settings.</p>
-            <p><a href="#build-with-copilot">See the step-by-step “Build This With Microsoft Copilot” guide →</a></p>
-          </div>
-        </div>
-
-        <p class="callout-note"><strong>Reminder:</strong> no matter the platform, keep your Markdown files on your own computer. They are your master copy.</p>
-      </div>
-    </section>
-
-    <!-- ==================== BUILD THIS WITH MICROSOFT COPILOT ==================== -->
-    <section class="lesson lesson--copilot" id="build-with-copilot" aria-labelledby="copilot-guide-title">
-      <div class="lesson-inner">
-        <header class="lesson-head">
-          <span class="lesson-number lesson-number--copilot" aria-hidden="true">✦</span>
-          <div>
-            <h2 id="copilot-guide-title">Build This With Microsoft Copilot</h2>
-            <p class="lesson-tagline">A step-by-step Copilot-specific path through the seven stages.</p>
-          </div>
-        </header>
-
-        <div class="goal-box" role="note">
-          <h3 class="goal-title">🎯 What this guide covers</h3>
-          <p>This optional guide maps each stage of the tutorial to Microsoft Copilot (Copilot Chat and Microsoft 365 Copilot). It is built on ordinary conversation and settings — no coding, no agents, and no developer tools required.</p>
-        </div>
-
-        <div class="callout-note" role="note">
-          <p><strong>Before you start:</strong> Copilot features vary by plan, account type, and organization settings. The steps below describe what the official documentation says is possible; check what your own account actually shows. Keep your Markdown files on your computer as your master copy.</p>
-        </div>
-
-        <div class="explanation">
-          <h3>Get set up</h3>
-          <ol>
-            <li>Open <strong>Copilot Chat</strong> — at <code>m365.cloud.microsoft</code> (Microsoft 365) or <code>copilot.microsoft.com</code> — and sign in with your Microsoft account.</li>
-            <li>Open the <strong>Settings</strong> menu (the “…” menu) and look for <strong>Personalization</strong>. Whether you see Custom Instructions, Saved memories, or Chat history depends on your plan and organization.</li>
-            <li>Keep a local folder with your Markdown files (<code>profile.md</code>, <code>skill.md</code>, <code>principles.md</code>, <code>feedback.md</code>) — these are your master copy.</li>
-          </ol>
-        </div>
-
-        <div class="table-wrap">
-          <table class="platform-table">
-            <caption class="sr-only">How to complete each tutorial stage using Microsoft Copilot.</caption>
-            <thead>
-              <tr>
-                <th scope="col">Tutorial stage</th>
-                <th scope="col">What to do in Microsoft Copilot</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <th scope="row">1 · Meet Your AI</th>
-                <td>Run the two Spanish prompts in a Copilot Chat conversation and compare the answers.</td>
-              </tr>
-              <tr>
-                <th scope="row">2 · Introduce Yourself</th>
-                <td>Add your profile to <strong>Custom Instructions</strong>, or tell Copilot to “remember that…” your key facts so they are saved to Copilot Memory.</td>
-              </tr>
-              <tr>
-                <th scope="row">3 · Teach It How You Work</th>
-                <td>Paste your <code>skill.md</code> working-style rules into Custom Instructions, or open a chat with them.</td>
-              </tr>
-              <tr>
-                <th scope="row">Safety checkpoint</th>
-                <td>Follow the pre-upload checklist before attaching files, and review your Saved memories in your personalization settings.</td>
-              </tr>
-              <tr>
-                <th scope="row">4 · Give It Useful Knowledge</th>
-                <td>Attach knowledge files (MD, TXT, PDF, DOCX) in chat, or add them to a <strong>Copilot Notebook</strong> for grounded, persistent answers.</td>
-              </tr>
-              <tr>
-                <th scope="row">5 · Grow Together</th>
-                <td>Correct answers in chat and say “remember that…” to save the correction to Copilot Memory.</td>
-              </tr>
-              <tr>
-                <th scope="row">6 · Create Your Digital Twin</th>
-                <td>Keep profile + skill + principles in Custom Instructions, knowledge in a Notebook, then use the starter prompt in a new chat.</td>
-              </tr>
-              <tr>
-                <th scope="row">7 · Keep It Up to Date</th>
-                <td>Re-run the review checklist in a chat, then review and prune Saved memories and Custom Instructions.</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-
-        <div class="explanation">
-          <h3>Stage-by-stage details</h3>
-
-          <h4>Stages 1–3: context, profile, and working style</h4>
-          <p>Copilot Chat behaves like any other chatbot: a generic question returns a generic answer, and the context-rich version of the Spanish prompt works the same way here.</p>
-          <p>For lasting personalization, Microsoft documents two features:</p>
-          <ul>
-            <li><strong>Custom Instructions</strong> — a standing brief you write once in your personalization settings. This is the closest equivalent to <code>profile.md</code> plus <code>skill.md</code>: you add details about yourself and specify how you want responses formatted.</li>
-            <li><strong>Copilot Memory</strong> — Copilot can save key details from your chats into <strong>Saved memories</strong> (it asks you, or you can say “remember that…”). You can review, edit, and delete memories, or turn the feature off.</li>
-          </ul>
-
-          <h4>Safety checkpoint</h4>
-          <p>Microsoft’s file-upload documentation states that files you share with Copilot are stored securely for up to 18 months and that Microsoft does not use the content for model training. Even so, the tutorial’s pre-upload checklist still applies: share only the minimum useful context, and avoid passwords, ID numbers, banking details, and confidential work or client information. Review your Saved memories periodically and remove anything you no longer want stored.</p>
-
-          <h4>Stage 4: give it useful knowledge</h4>
-          <p>You can attach files directly in Copilot Chat — supported formats include PDF, DOCX, XLSX, PPTX, TXT, MD, CSV, and JSON, with size and count limits. For a persistent project knowledge base, create a <strong>Copilot Notebook</strong> and add your files as references; Copilot then answers grounded in the notebook’s content rather than only general knowledge.</p>
-
-          <h4>Stage 5: grow together</h4>
-          <p>After a correction, tell Copilot to “remember that…” the change so it is saved to Copilot Memory for future chats. You stay in control: delete individual memories or all of them, or turn Copilot Memory off.</p>
-
-          <h4>Stage 6: create your digital twin</h4>
-          <p>Two ways to combine everything:</p>
-          <ul>
-            <li><strong>Setup A — one chat:</strong> paste <code>profile.md</code>, <code>skill.md</code>, <code>principles.md</code>, and <code>feedback.md</code> into a new conversation, then send the starter prompt.</li>
-            <li><strong>Setup B — standing setup:</strong> put profile + skill + principles in Custom Instructions, keep your knowledge files in a Copilot Notebook, and reference them in your chats. The starter prompt still works as a one-time check.</li>
-          </ul>
-
-          <h4>Stage 7: keep it up to date</h4>
-          <p>Run the review checklist in a chat a few times a year. In your personalization settings, review your Saved memories, delete outdated entries, and update your Custom Instructions when your goals or preferences change.</p>
-        </div>
-
-        <div class="notice-box">
-          <h3>Official Microsoft documentation</h3>
-          <p>The Microsoft Copilot claims on this page are verified against the following official sources. <strong>Last verified: August 1, 2026.</strong> Features change often — always confirm against these pages for your own account.</p>
-          <ul>
-            <li><a href="https://support.microsoft.com/en-us/Microsoft-365-Copilot/manage-copilot-memory-in-microsoft-365-copilot">Manage Copilot Memory in Microsoft 365 Copilot</a> — support.microsoft.com</li>
-            <li><a href="https://support.microsoft.com/en-us/Microsoft-365-Copilot/personalize-what-microsoft-365-copilot-remembers">Personalize what Microsoft 365 Copilot remembers</a> — support.microsoft.com</li>
-            <li><a href="https://support.microsoft.com/en-us/Microsoft-365-Copilot/customize-how-microsoft-365-copilot-responds-to-you">Customize how Microsoft 365 Copilot responds to you</a> — support.microsoft.com</li>
-            <li><a href="https://support.microsoft.com/en-us/microsoft-copilot/file-upload-in-microsoft-copilot">File upload in Microsoft Copilot</a> — support.microsoft.com</li>
-            <li><a href="https://support.microsoft.com/en-us/microsoft-365-copilot/get-answers-and-insights-about-your-microsoft-365-copilot-notebook">Get answers and insights about your Microsoft 365 Copilot Notebook</a> — support.microsoft.com</li>
-            <li><a href="https://learn.microsoft.com/en-us/microsoft-365/copilot/copilot-personalization-memory">Manage Copilot personalization and memory</a> — learn.microsoft.com</li>
-          </ul>
-          <p class="table-note">This tutorial is a static page; these links open the official Microsoft sites in your browser. Everything else on this page still works offline.</p>
-        </div>
-
-        <p class="callout-note"><strong>Reminder:</strong> keep your Markdown files on your own computer. They are your master copy, no matter which platform you use.</p>
-
-        <nav class="lesson-nav" aria-label="Microsoft Copilot guide navigation">
-          <a href="#platforms" class="btn btn-ghost">← Back: Using This Tutorial With Your Chatbot</a>
-          <a href="#starter-kit" class="btn btn-primary">Next: Download the Starter Kit →</a>
+        <nav class="lesson-nav" aria-label="Section 8 navigation">
+          <a href="#limits-privacy" class="btn btn-ghost">Back: Limits and Privacy</a>
+          <a href="#what-you-have-built" class="btn btn-primary">Finish</a>
         </nav>
       </div>
     </section>
 
-    <!-- ==================== STARTER KIT ==================== -->
-    <section class="lesson lesson--kit" id="starter-kit" aria-labelledby="kit-title">
-      <div class="lesson-inner">
-        <header class="lesson-head">
-          <span class="lesson-number lesson-number--kit" aria-hidden="true">⬇</span>
-          <div>
-            <h2 id="kit-title">Download the Starter Kit</h2>
-            <p class="lesson-tagline">Five small template files — the whole AI companion.</p>
-          </div>
-        </header>
-
-        <div class="explanation">
-          <h3>What’s inside</h3>
-          <p>Download each file separately, or grab the whole kit. Once downloaded, create a <code>knowledge/</code> folder alongside them for your own knowledge documents (like Maya’s garden plan).</p>
-        </div>
-
-        <div class="kit-list">
-          <div class="kit-card">
-            <div>
-              <h3>profile.md</h3>
-              <p>Who you are — background, interests, goals, preferences, and boundaries.</p>
-            </div>
-            <button type="button" class="btn btn-ghost" data-download="profile.md">Download</button>
-          </div>
-          <div class="kit-card">
-            <div>
-              <h3>skill.md</h3>
-              <p>How the AI should communicate and collaborate with you.</p>
-            </div>
-            <button type="button" class="btn btn-ghost" data-download="skill.md">Download</button>
-          </div>
-          <div class="kit-card">
-            <div>
-              <h3>principles.md</h3>
-              <p>How you tend to evaluate choices and make decisions.</p>
-            </div>
-            <button type="button" class="btn btn-ghost" data-download="principles.md">Download</button>
-          </div>
-          <div class="kit-card">
-            <div>
-              <h3>feedback.md</h3>
-              <p>Corrections and evolving preferences.</p>
-            </div>
-            <button type="button" class="btn btn-ghost" data-download="feedback.md">Download</button>
-          </div>
-          <div class="kit-card">
-            <div>
-              <h3>starter.md</h3>
-              <p>The complete starter prompt that ties everything together.</p>
-            </div>
-            <button type="button" class="btn btn-ghost" data-download="starter.md">Download</button>
-          </div>
-        </div>
-
-        <div class="kit-download-all">
-          <button type="button" id="download-all" class="btn btn-primary btn-lg">Download Starter Kit</button>
-          <p class="note-hint">This downloads the five files above, one at a time. In browsers that support saving to a folder, you will be asked where to save them.</p>
-          <p id="download-all-status" class="note-hint" role="status" aria-live="polite"></p>
-        </div>
-      </div>
-    </section>
-
-    <!-- ============================ FINAL SECTION ============================ -->
     <section class="lesson lesson--final" id="what-you-have-built" aria-labelledby="final-title">
       <div class="lesson-inner">
         <header class="lesson-head">
-          <span class="lesson-number lesson-number--final" aria-hidden="true">🏁</span>
+          <span class="lesson-number lesson-number--final" aria-hidden="true">OK</span>
           <div>
             <h2 id="final-title">What You Have Built</h2>
-            <p class="lesson-tagline">You have come a long way from a stranger on the other side of a chat box.</p>
+            <p class="lesson-tagline">A personalized Copilot setup you can test and maintain.</p>
           </div>
         </header>
 
         <div class="explanation">
-          <h3>Your Journey</h3>
+          <h3>Your Completed Workflow</h3>
           <div class="copy-block">
             <div class="copy-block-head">
-              <span class="copy-block-label">The full progression</span>
+              <span class="copy-block-label">Workflow summary</span>
               <button type="button" class="btn-copy">Copy</button>
             </div>
-            <pre class="copy-text">Conversation
-    ↓
-Profile
-    ↓
-Working Instructions
-    ↓
-Principles
-    ↓
-Useful Knowledge
-    ↓
-Feedback
-    ↓
-Digital Twin Persona
-    ↓
-Ongoing Review</pre>
+            <pre class="copy-text">1. Decide what Copilot should know about me.
+2. Decide how Copilot should respond.
+3. Draft one Custom Instructions block.
+4. Open Copilot's Chat settings.
+5. Select Personalization.
+6. Find Custom Instructions.
+7. Paste and save the instructions.
+8. Test the result in a new conversation.
+9. Revise the instructions when necessary.</pre>
           </div>
         </div>
 
-        <h3 class="section-sub">One Final Check</h3>
-        <p>Ask your companion to reflect on everything it now knows:</p>
+        <h3 class="section-sub">Final Check</h3>
+        <p>Ask Copilot one final prompt after saving your instructions:</p>
         <div class="copy-block">
           <div class="copy-block-head">
-            <span class="copy-block-label">Prompt</span>
+            <span class="copy-block-label">Final prompt</span>
             <button type="button" class="btn-copy">Copy</button>
           </div>
-          <pre class="copy-text">Based only on the information I have provided, describe:
+          <pre class="copy-text">Based only on the Custom Instructions I supplied, describe:
 
+1. what you know about my role and priorities;
+2. how you should respond to me;
+3. what assumptions you should avoid;
+4. what information you still need to answer well.
 
-1. what you know about me;
-2. how you should work with me;
-3. what principles influence my decisions;
-4. what you remain uncertain about;
-5. what you should never assume.</pre>
+Do not invent personal facts.</pre>
         </div>
-        <details class="answer">
-          <summary>Example AI answer <span class="tag">Example</span></summary>
-          <div class="answer-body">
-            <p class="answer-note">Every chatbot is different. The example below is illustrative.</p>
-            <ol>
-              <li><strong>What I know about you:</strong> you work in community-college administration, prefer examples before theory, value practical and affordable recommendations, are building confidence with AI, and garden on a small balcony.</li>
-              <li><strong>How I should work with you:</strong> give the main answer first, keep language plain, explain unfamiliar terms, use examples, recommend no more than three options, and end with one practical next step.</li>
-              <li><strong>What principles influence your decisions:</strong> simple solutions over complicated ones, long-term value over lowest price, privacy when a convenient alternative exists, small experiments, evidence over confident opinions, and faster decisions on reversible choices.</li>
-              <li><strong>What I remain uncertain about:</strong> your available time, deadlines, and current budget for specific projects.</li>
-              <li><strong>What I should never assume:</strong> technical expertise, a backyard or large space, unlimited time or budget, and that older information is still current.</li>
-            </ol>
-          </div>
-        </details>
 
         <div class="closing-message">
-          <blockquote>Start small. Correct the AI when necessary. Keep your own copy of the information. Share only what is useful. Your AI companion becomes more valuable through clarity, feedback, and careful maintenance — not through oversharing.</blockquote>
+          <blockquote>Start small. Save only useful information. Test Copilot in real tasks. Revise the instructions when they no longer fit. A personalized Copilot becomes more useful through clarity, privacy, and maintenance.</blockquote>
         </div>
 
         <nav class="lesson-nav" aria-label="End of tutorial navigation">
-          <a href="#keep-it-up-to-date" class="btn btn-ghost">← Back: Keep It Up to Date</a>
-          <a href="#top" class="btn btn-primary">Back to Top ↑</a>
+          <a href="#portability" class="btn btn-ghost">Back: Optional Note</a>
+          <a href="#top" class="btn btn-primary">Back to Top</a>
         </nav>
       </div>
     </section>
 
-    <!-- ============================ FOOTER ============================ -->
     <footer class="site-footer">
       <div class="site-footer-inner">
-        <p><strong>Build Your First AI Companion</strong> — a beginner workshop. This website is a static tutorial: it makes no API calls, needs no internet connection, and never sends your data to a server.</p>
-        <p>Fictional learner “Maya” is used throughout for illustration. Her details are invented for teaching purposes only.</p>
+        <p><strong>Build Your First Personalized Copilot</strong> is a static beginner tutorial. It makes no API calls and does not send your data to a server.</p>
+        <p>Fictional learner Maya is used for illustration. Her details are invented for teaching purposes only.</p>
         <button type="button" id="reset-progress" class="btn btn-ghost">Reset tutorial progress</button>
       </div>
     </footer>
   </main>
 
-  <button type="button" id="back-to-top" class="back-to-top" aria-label="Back to top">↑</button>
+  <button type="button" id="back-to-top" class="back-to-top" aria-label="Back to top">Top</button>
 
   <div id="toast" class="toast" role="status" aria-live="polite"></div>
 </body>

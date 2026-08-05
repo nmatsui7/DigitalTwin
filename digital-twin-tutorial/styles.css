@@ -1,5 +1,5 @@
 /* ==========================================================================
-   Build Your First AI Companion — styles.css
+   Build Your First AI Companion - styles.css
    Clean, friendly, pastel workshop design. Responsive, print-friendly,
    respects prefers-reduced-motion, keyboard-accessible.
    ========================================================================== */
@@ -502,6 +502,13 @@ img {
   box-shadow: var(--shadow-sm);
 }
 
+.lesson-figure--wide img {
+  max-height: none;
+  width: min(100%, 783px);
+  background: #fff;
+  border: 1px solid var(--border);
+}
+
 .lesson-figure figcaption {
   font-size: 0.9rem;
   color: var(--muted);
@@ -632,7 +639,7 @@ img {
 }
 
 .answer summary::before {
-  content: "▸";
+  content: ">";
   color: var(--violet-dark);
   transition: transform 0.2s ease;
 }
