@@ -1,49 +1,99 @@
 # Build Your First Personalized Copilot
 
-This is a static beginner tutorial for personalizing Microsoft Copilot with the built-in Custom Instructions field.
+A static, beginner-friendly tutorial for personalizing Microsoft Copilot with the built-in Custom Instructions field.
 
-The tutorial guides learners through one mainstream workflow:
+The workshop teaches nontechnical users how to create one clear set of personalization instructions, add it to Copilot, test the result, and revise it when Copilot needs better guidance. The page is intentionally simple: no accounts are required to view the tutorial, no server-side code runs, and no user input is sent anywhere by this site.
 
-1. Decide what Copilot should know.
+## Tutorial Flow
+
+Learners progress through the same workflow they will use in Copilot:
+
+1. Decide what Copilot should know about them.
 2. Decide how Copilot should respond.
-3. Draft one consolidated instruction block.
+3. Draft one consolidated Custom Instructions block.
 4. Open Copilot Chat settings.
 5. Select Personalization.
 6. Find Custom Instructions.
 7. Paste and save the instructions.
 8. Test the result in a new conversation.
-9. Revise the saved instructions when needed.
+9. Revise the saved instructions when necessary.
 
-## Project Files
+The tutorial keeps "digital twin" as a broad concept only. In practice, it describes a personalized assistant configuration, not a complete or continuously synchronized copy of a person.
+
+## What Is Included
 
 | Path | Purpose |
 | --- | --- |
-| `index.html` | Tutorial content and page structure |
+| `index.html` | Main tutorial content and page structure |
 | `styles.css` | Responsive visual design |
-| `script.js` | Copy buttons, progress tracking, temporary notes, print behavior |
-| `images/` | Tutorial illustrations and the Copilot settings screenshot |
+| `script.js` | Copy buttons, progress tracking, temporary revision notes, and print behavior |
+| `images/` | Tutorial illustrations and the Copilot Custom Instructions screenshot |
 
 ## Local Preview
 
-Open `index.html` directly in a browser, or run a simple local web server:
+You can open `index.html` directly in a browser.
+
+For a local web-server preview, run:
 
 ```bash
 python3 -m http.server 8000
 ```
 
-Then open `http://localhost:8000`.
+Then open:
+
+```text
+http://localhost:8000
+```
+
+## Browser Features
+
+The page uses small, dependency-free JavaScript for:
+
+- copying prompts and templates to the clipboard;
+- marking lesson sections complete;
+- showing progress in the sticky header;
+- keeping temporary revision notes for the current browser session;
+- expanding examples for printing.
+
+If JavaScript is disabled, the tutorial content is still readable.
+
+## Privacy Notes
+
+This tutorial site does not make API calls and does not send learner content to a server.
+
+Browser storage is limited to:
+
+- completion progress in `localStorage`;
+- temporary revision notes in session storage for the current browser session.
+
+The tutorial also reminds learners not to put passwords, authentication details, confidential records, or unnecessary sensitive personal information into Copilot Custom Instructions.
 
 ## Validation Checklist
 
-Before publishing, check that:
+Before publishing changes, verify that:
 
-- all lesson navigation links move to valid sections;
+- all navigation links move to valid sections;
+- all referenced image assets load;
+- the Copilot Custom Instructions screenshot appears in the setup section;
 - copy buttons work;
 - progress checkboxes update the progress bar;
-- the Copilot settings screenshot appears in the setup section;
-- the page remains readable on desktop and mobile widths;
-- no obsolete file-based personalization workflow appears in the tutorial.
+- the page has no console errors;
+- the layout is readable on desktop and mobile widths;
+- old file-management or download workflows have not been reintroduced.
 
-## Privacy Position
+Useful local checks:
 
-The tutorial does not send user input to a server. The only persisted browser data is completion progress in `localStorage`. Revision notes are kept in session storage for the current browser session.
+```bash
+node --check script.js
+python3 -m html.parser index.html
+```
+
+## Design Notes
+
+The tutorial is written for nontechnical users. Keep future edits:
+
+- direct and instructional;
+- centered on Microsoft Copilot Custom Instructions;
+- privacy-conscious;
+- responsive and accessible;
+- free of unnecessary technical setup.
