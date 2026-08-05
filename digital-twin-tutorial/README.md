@@ -4,6 +4,20 @@ A static, beginner-friendly tutorial for personalizing Microsoft Copilot with th
 
 The workshop teaches nontechnical users how to create one clear set of personalization instructions, add it to Copilot, test the result, and revise it when Copilot needs better guidance. The page is intentionally simple: no accounts are required to view the tutorial, no server-side code runs, and no user input is sent anywhere by this site.
 
+## Screenshots
+
+### Tutorial Start
+
+![Tutorial start screen](images/screenshots/desktop-hero.png)
+
+### Copilot Setup Step
+
+![Copilot Custom Instructions setup step](images/screenshots/desktop-copilot-setup.png)
+
+### Mobile Lesson View
+
+![Mobile lesson view](images/screenshots/mobile-lesson.png)
+
 ## Tutorial Flow
 
 Learners progress through the same workflow they will use in Copilot:
@@ -18,7 +32,7 @@ Learners progress through the same workflow they will use in Copilot:
 8. Test the result in a new conversation.
 9. Revise the saved instructions when necessary.
 
-The tutorial keeps "digital twin" as a broad concept only. In practice, it describes a personalized assistant configuration, not a complete or continuously synchronized copy of a person.
+The tutorial describes a personalized assistant setup: a focused set of Custom Instructions that learners control and update.
 
 ## What Is Included
 
