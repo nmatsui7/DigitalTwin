@@ -1,8 +1,7 @@
 # Build Your First AI Companion
 
-A beginner-friendly, offline, static web tutorial that shows how to turn an
-ordinary AI chatbot (ChatGPT, Gemini, Claude, or Microsoft Copilot) into a
-personalized **AI companion** using simple Markdown files — no coding required.
+A beginner-friendly, offline, static web tutorial that shows how to turnMicrosoft Copilot into a
+personalized **AI companion** — no coding required.
 
 [![License: CC BY 4.0](https://img.shields.io/badge/License-CC_BY_4.0-lightgrey.svg)](https://creativecommons.org/licenses/by/4.0/)
 
