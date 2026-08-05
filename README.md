@@ -1,4 +1,4 @@
-# DigitalTwin — Build Your First AI Companion
+# Build Your First AI Companion
 
 A beginner-friendly, offline, static web tutorial that shows how to turn an
 ordinary AI chatbot (ChatGPT, Gemini, Claude, or Microsoft Copilot) into a
